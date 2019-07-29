@@ -1,1 +1,561 @@
-Hello World.
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Фактор 7</title>
+  <style>
+	* {
+	  margin: 0;
+	  padding: 0;
+	  -moz-box-sizing: border-box;
+	  -webkit-box-sizing: border-box;
+	  box-sizing: border-box;
+	}
+
+	@media (min-width:320px){
+		/* smartphones, iPhone, portrait 480x320 phones */
+		body {
+			background: #ffdb4d;
+			font-family: arial, sans-serif;
+		}
+		canvas {
+			width: 0%;
+			height: 0%;
+		}
+		label, input {
+			display: none;
+		}
+		#naslov{
+		  font-family: Helvetica, sans-serif;
+		  -webkit-font-smoothing: antialiased;
+		  text-align: center;
+		  font-size: 1.2em;
+		  margin-bottom: 10px;
+		  text-transform: lowercase;
+		  font-weight: bold;
+		  color: #888;
+		  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+		}
+		#naslov:after{
+			content: ".";
+		}
+		.graphics{
+			width:100%;
+			height: 33vh;
+			background-size: auto;
+			background-position: center;
+		    background-repeat: no-repeat;
+		}
+	  	/*SLIDES*/
+		.accslide {
+		  display: block;
+		  bottom: 3rem !important; 
+		  padding: 0px 0 5rem 0;
+		  float: left;
+		  overflow: hidden;
+		 
+		  color: #333;
+		  background: #fff;
+		  font: 1.1rem Helvetica, Verdana, sans-serif;
+
+		  background-image: url(cg/backgroundpattern.png);
+		  
+		  -webkit-transition: all 1s ease;
+		     -moz-transition: all 1s ease;
+		       -o-transition: all 1s ease;
+		      -ms-transition: all 1s ease;
+		          transition: all 1s ease;
+		}
+		 
+		.accslide p, h2, img {
+		  /*width: 31vw;*/
+		  padding-left: 1rem;
+		  padding-right: 1rem;
+		  margin-bottom: 1.6rem; 
+		}
+
+		.accslide h2 {
+		  text-align: center;
+		  text-transform: lowercase;
+		  margin-top: 5%;
+		  font-size: 1.2rem;
+		  color: gray;
+		}
+		.accslide p {
+		  font-size: 0.8rem;
+		  line-height: 1.2rem;
+		  text-align: justify;
+		  padding: 0.8rem 2rem 0rem 2rem;
+		}
+
+		.accslide p:first-letter {
+			color: dimgrey;
+			font-size:3em;
+			line-height: 0;
+		}
+		.button {
+		    margin: -1rem 1.2rem;
+		    padding: 0.5rem 1rem;
+		    font-family: sans-serif;
+		    font-size: 1rem;
+		    border-radius: 7px;
+		    background: gold;
+		    color: #292929;
+		    text-decoration: none;
+		}
+		.button:hover{
+			background: #FFDD28;
+			color: #000;
+		}
+		.button:active{
+			background: #17BD24;
+	    	color: #fff;
+		}		
+	}
+	@media (min-width:481px){
+		/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+
+	}
+	@media (min-width:641px){
+		/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+	}
+	@media (min-width:961px){
+		/* tablet, landscape iPad, lo-res laptops ands desktops */
+
+	}
+	@media (min-width:1024px){
+		body {
+			background: #ffdb4d;
+			font-family: arial, sans-serif;
+		}
+		canvas {
+			width: 100%;
+			height: 100%;
+		}
+		/*LIST*/
+		ul {
+		  list-style: none;
+		}
+		/*FORM*/
+		input {
+		  position: absolute;
+		  top: -9999px;
+		  left: -9999px;
+		}
+		label {
+		  display: block;
+		  float: left;
+		  height: 100vh;
+		  width: 50px;
+		  overflow: hidden; 
+		  background: #8D8887;
+		  text-align: center;
+		  font: 24px/50px arial, sans-serif;
+		  font-weight: bold;
+		  box-shadow: 0 1px 5px rgb(132, 118, 115);
+
+		  -webkit-transition: width 1s ease, background 0.5s ease;
+		     -moz-transition: width 1s ease, background 0.5s ease;
+		       -o-transition: width 1s ease, background 0.5s ease;
+		      -ms-transition: width 1s ease, background 0.5s ease;
+		          transition: width 1s ease, background 0.5s ease;
+		}
+		#rad2 + label {
+		  background: #888;
+		  -webkit-transition: width 1s ease, background 0.5s ease;
+		     -moz-transition: width 1s ease, background 0.5s ease;
+		       -o-transition: width 1s ease, background 0.5s ease;
+		      -ms-transition: width 1s ease, background 0.5s ease;
+		          transition: width 1s ease, background 0.5s ease;
+		}
+
+		label:hover, #rad2 + label:hover {
+		  background: #232323;
+		  color: #fff;
+		  cursor: pointer;
+		}
+		.graphics{
+			width:100%;
+			height: 33vh;
+			background-size: auto;
+			background-position: center;
+		    background-repeat: no-repeat;
+		}
+	  	/*SLIDES*/
+		.accslide {
+		  display: block;
+		  height: 100vh;
+		  width: 0px;
+		  bottom: -1px !important; 
+		  padding: 0px 0 10px 0;
+		  float: left;
+		  overflow: hidden;
+		 
+		  color: #333;
+		  background: #fff;
+		  font: 1.1rem Helvetica, Verdana, sans-serif;
+
+		  background-image: url(cg/backgroundpattern.png);
+		  
+		  -webkit-transition: all 1s ease;
+		     -moz-transition: all 1s ease;
+		       -o-transition: all 1s ease;
+		      -ms-transition: all 1s ease;
+		          transition: all 1s ease;
+		}
+		 
+		.accslide p, h2, img {
+		  /*width: 31vw;*/
+		  padding-left: 1rem;
+		  padding-right: 1rem;
+		  margin-bottom: 1.6rem; 
+		}
+
+		.accslide h2 {
+		  text-align: center;
+		  text-transform: lowercase;
+		  margin-top: 5%;
+		  font-size: 1.2rem;
+		  color: gray;
+		}
+		.accslide p {
+		  font-size: 0.8rem;
+		  line-height: 1.2rem;
+		  text-align: justify;
+		  padding: 0.8rem 2rem 0 2rem;
+		}
+
+		.accslide p:first-letter {
+			color: dimgrey;
+			font-size:3em;
+			line-height: 0;
+		}
+		input[type="radio"]:checked ~ .accslide {
+	  		width: 33vw;
+	  		border-left: 1px solid gold;
+		}
+		.button {
+		    margin: -1rem 1.2rem;
+		    padding: 0.5rem 1rem;
+		    font-family: sans-serif;
+		    font-size: 1rem;
+		    border-radius: 7px;
+		    background: gold;
+		    color: #292929;
+		    text-decoration: none;
+		}
+		.button:hover{
+			background: #FFDD28;
+			color: #000;
+		}
+		.button:active{
+			background: #17BD24;
+	    	color: #fff;
+		}
+		footer {
+			border-top: 1px solid #f8f8f8;
+			z-index: 1;
+			position: absolute;
+			bottom: 0px;
+			width: 100vw;
+			height: 1.5rem;
+			background: white;
+			vertical-align: baseline;
+		}
+		footer span{
+			color: grey;
+			padding: 2px 8px ;
+			font-size: 0.7rem;
+		}
+		#particles-js{	}
+		#particles-js .particles-js-canvas-el{
+			position: fixed;
+		}
+		#naslov{
+		  font-family: Helvetica, sans-serif;
+		  -webkit-font-smoothing: antialiased;
+		  text-align: center;
+		  font-size: 1.2em;
+		  margin-bottom: 10px;
+		  text-transform: lowercase;
+		  font-weight: bold;
+		  color: #888;
+		  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+		}
+		#naslov:after{
+			content: ".";
+		}
+		.brace {
+		  width: auto;
+		  min-width: 35px;
+		  padding-bottom: 1rem;
+		  left: 0.5rem !important;
+		  margin-right: 2rem !important;
+		  font-size: 2em;
+		  line-height: 2em;
+		  position: relative;
+		  text-align: center;
+		  vertical-align: middle;
+		  margin: 0 15px 15px;
+		  border: none;
+		  background-color: transparent;
+		  background-image: radial-gradient(circle at 0 0, rgba(255,255,255,0) 14.5px, #fff 15.5px, #fff 19.5px, rgba(255,255,255,0) 20.5px), radial-gradient(circle at 35px 0, rgba(255,255,255,0) 14.5px, #fff 15.5px, #fff 19.5px, rgba(255,255,255,0) 20.5px);
+		  background-size: 35px 20px;
+		  background-position: center bottom;
+		  background-repeat: no-repeat;
+		  text-transform: lowercase;
+		  font-style: italic;
+		  color: #fff;
+		  -webkit-filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+		          filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+		  overflow: visible;
+		}
+
+		.brace:before {
+		  width: 50%;
+		  border-top: 5px solid #fff;
+		  border-left: 1px solid transparent;
+		  border-top-left-radius: 20% 30px;
+		  height: 100%;
+		  content: "";
+		  position: absolute;
+		  top: 100%;
+		  left: -15px;
+		  box-sizing: border-box;
+		  margin-top: -5px;
+		}
+		.brace:after {
+		  width: 50%;
+		  border-top: 5px solid #fff;
+		  border-right: 1px solid transparent;
+		  border-top-right-radius: 20% 30px;
+		  height: 100%;
+		  content: "";
+		  position: absolute;
+		  top: 100%;
+		  right: -15px;
+		  box-sizing: border-box;
+		  margin-top: -5px;
+		}
+
+	}
+
+	@media screen and (min-width: 1280px) {
+		.accslide p {
+			font-size: 1rem;
+			line-height: 1.2rem;
+		}
+	}
+
+	@media screen and (min-width: 1680px) {
+		.accslide p {
+			font-size: 1.2rem;
+			line-height: 1.6rem;
+		}
+		.button {
+		    margin: 1rem 2rem;
+		}
+		#naslov {
+			font-size: 3em;
+		}
+	}
+
+  </style>
+
+</head>
+
+<body id="particles-js">
+	<form>
+	  <ul>
+	    <li>
+	      <input id="rad1" type="radio" name="rad">
+	      <label for="rad1">1</label>
+	      <div class="accslide">
+	      	<div class="graphics" style="background-image: url('cg/sedmica.png');"></div>
+	        <h2 id="naslov">ОПШТЕ ИНФОРМАЦИЈЕ</h2>
+	        <hr class="brace">
+	        <p>Услуге видео и аудио продукције, креирања 2д и 3д анимација и визуелних ефеката. Садржај визуелног и звучног приказа за тв рекламе, видео садржај за интернет, кратке форме медија као и за специјалне захтеве. Од креирања креативног концепта, преко организације снимања и снимања, до финалне постпродукције и пласирања у етар. Интернет и интранет сајтови и апликације за десктоп, интернет, интранет и мобилне уређаје.</p>
+	      </div>
+	    </li>
+	    <li>
+	      <input id="rad2" type="radio" name="rad">
+	      <label for="rad2">2</label>
+	      <div class="accslide">
+	       <center>
+	      	<div class="graphics" style="background-image: url('cg/tv-unit.svg');"></div>
+	        <h2 id="naslov">ПРОДУкЦИЈА ТВ И РАДИО РЕкЛАМА</h2>
+	        <hr class="brace">
+	        <p>Широка лепеза у избору саме форме. Уколико имате идеју и желите да је претворите у рекламни спот, ово је права адреса. Могуће је креирати видео садржај у виду ТВ реклама или видео презентација поштујући све норме, правила и стандарде за приказ на националним ТВ станицама као и за приказ на интернету.</p>
+	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=ПРОДУКЦИЈА%20ТВ/РАДИО%20РЕКЛАМА&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
+	       </center>
+	      </div>
+	    </li>
+	    <li>
+	      <input id="rad3" type="radio" name="rad">
+	      <label for="rad3">3</label>
+	      <div class="accslide">
+	       <center>
+	      	<div class="graphics" style="background-image: url('cg/videocontent.svg'); margin-top: 10px;"></div>
+	        <h2 id="naslov">ПРОДУкЦИЈА ВИДЕО САДРЖАЈА</h2>
+	        <hr class="brace">
+	        <p>Видео услуга од предпродукције до постпродукције. Употребом професионалне опреме и применом стручног знања, комуникација са јавношћу биће усмерена на перфектан начин и у оквиру буџета којим располажете. Креативност, комерцијални видео формати, искуство и у многим другим продукцијским областима. Услуге креирања сценарија, драмских заплета, режирања, снимања, нелинеарне монтаже, корекције боја, музике и сл. Снимање тв репортажа, креирање корпоративних филмова, играних тв реклама, трик и анимираних спотова...</p>
+	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=ПРОДУKЦИЈА%20ВИДЕО%20САДРЖАЈА&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
+	       </center>
+	      </div>
+	    </li>
+	    <li>
+	      <input id="rad4" type="radio" name="rad">
+	      <label for="rad4">4</label>
+	      <div class="accslide">
+	       <center>	      	
+	      	<div class="graphics" style="background-image: url('cg/3dmodel.svg');"></div>
+	        <h2 id="naslov">3Д МОДЕЛИ</h2>
+	        <hr class="brace">
+	        <p>Богат 3Д садржај за потребе свих медија, почев од штампаних медија, преко интернет медија до телевизије. Креативно и квалификовано са посебно посвећеном пажњом сваком 3Д моделу како би се пружио садржај који у потпуности одговара потребама. Стручност и вештине из мултидисциплинарних области доприносе креирању додатне вредности финалних производа.</p>
+	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=3Д%20МОДЕЛИ&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
+	       </center>	        
+	      </div>
+	    </li>
+	    <li>
+	      <input id="rad5" type="radio" name="rad">
+	      <label for="rad5">5</label>
+	      <div class="accslide">
+	       <center>	      	
+	      	<div class="graphics" style="background-image: url('cg/animation.svg');"></div>
+	        <h2 id="naslov">2Д и 3Д АНИМАЦИЈЕ</h2>
+	        <hr class="brace">
+	        <p>Многе компаније користе 3Д анимацију како би подигле квалитет својих маркетиншких кампања. На посматрача, покретна 3Д слика има већи утицај него статична. То узрокује више емоција и увећани интерес за поруку коју реклама шаље. Врхунска 3Д реклама помаже да производ остави што бољи утисак и пренесе жељену поруку потрошачима.</p>
+	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=2Д/3Д%20АНИМАЦИЈЕ&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
+	       </center>	      
+	      </div>
+	    </li>	    
+	    <li>
+	      <input id="rad6" type="radio" name="rad">
+	      <label for="rad6">6</label>
+	      <div class="accslide">
+	       <center>
+	      	<div class="graphics" style="background-image: url('cg/marketing.svg');margin-top: 10px;"></div>
+	        <h2 id="naslov">АНИМИРАНЕ ТВ РЕкЛАМЕ</h2>
+	        <hr class="brace">
+	        <p>Kреирање тв рекламе не подразумева увек велике и скупе продукције са снимањима, глумцима и сл. Данас се све већи број оглашивача одлучује управо за анимиране тв рекламе зато што анимација у исто време може бити динамична(како би у мало секунди представила што више информација) и визуелно привлачна(како би привукла пажњу гледалаца). Управо због огромних креативних могућности код анимираних графика и визуала, анимирана тв реклама могла би и за ваш бренд бити пун погодак.</p>
+	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=АНИМИРАНЕ%20РЕКЛАМЕ&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
+	       </center>
+	      </div>
+	    </li>
+	    <li>
+	      <input id="rad7" type="radio" name="rad">
+	      <label for="rad7">7</label>
+	      <div class="accslide">
+	       <center>
+	      	<div class="graphics" style="background-image: url('cg/vfx.svg');margin-top: 10px;"></div>
+	        <h2 id="naslov">ВИЗУЕЛНИ ЕФЕкТИ</h2>
+	        <hr class="brace">
+	        <p>Визуелни ефекти(скраћено VFX) су процеси којима се стварају слике или видео и манипулише садржај ван контекста акције уживо. Они укључују интеграцију у акције снимака и слика генерисаних да створе окружење које изгледа реално, али би било опасно, скупо, непрактично или једноставно немогуће снимити камером.</p>
+	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=ВИЗУЕЛНИ%20ЕФЕКТИ&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
+	       </center>
+	      </div>
+	    </li>
+	    <li>
+	      <input id="rad8" type="radio" name="rad">
+	      <label for="rad8">8</label>
+	      <div class="accslide">
+	       <center>
+	      	<div class="graphics" style="background-image: url('cg/puzzle.svg');margin-top: 10px;"></div>
+	        <h2 id="naslov">ПРОМО ФИЛМОВИ</h2>
+	        <hr class="brace">
+	        <p>Уколико имате фирму, бренд или сајт и желите да промовишете или једноставно објасните Ваш производ или услугу тада је прави избор промо филм. Он може бити у форми 2д или 3д анимације, као и снимљен камером или комбинација напред набројаног и непоменутог у овом тексту.</p>
+	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=ПРОМО%20ФИЛМОВИ&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
+	       </center>
+	      </div>
+	    </li>	    
+	    <li>
+	      <input id="rad9" type="radio" name="rad">
+	      <label for="rad9">9</label>
+	      <div class="accslide">
+	       <center>
+	      	<div class="graphics" style="background-image: url('cg/microphone-radio.svg');margin-top: 10px;"></div>
+	        <h2 id="naslov">РАДИО РЕкЛАМЕ</h2>
+	        <hr class="brace">
+	        <p>Радио рекламе које читају еминентни радијски и тв водитељи. Креирање ауторске/оригиналне музике за радио рекламу.</p>
+	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=РАДИО%20РЕКЛАМЕ&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
+	       </center>
+	      </div>
+	    </li>
+	    <li>
+	      <input id="rad10" type="radio" name="rad">
+	      <label for="rad10">10</label>
+	      <div class="accslide">
+	       <center>
+	      	<div class="graphics" style="background-image: url('cg/promo-video.svg');"></div>
+	        <h2 id="naslov">ПРЕЗЕНТАЦИОНИ ВИДЕО</h2>
+	        <hr class="brace">
+	        <p>Анимирани презентациони видео креира се као комбинација фотографија, анимираних графика и типографије. То значи да можете доставити своје фотографије или се могу искористити прикладне "stock" фотографије, којима се додају додатни ефекти и покрет. У комбинацији са посебним графикама, типографијом и атрактивном музичком подлогом презентациони видео може бити пун погодак за Ваше промотивне кампање.</p>
+	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=ПРЕЗЕНТАЦИОНИ%20ВИДЕО&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
+	       </center>
+	      </div>
+	    </li>
+	    <li>
+	      <input id="rad11" type="radio" name="rad">
+	      <label for="rad11">11</label>
+	      <div class="accslide">
+	       <center>
+	      	<div class="graphics" style="background-image: url('cg/explainer.svg');"></div>
+	        <h2 id="naslov">EXPLAINER VIDEO ОБЈАШЊАВА СВЕ</h2>
+	        <hr class="brace">
+	        <p>Некад је заиста тешко представити неку услугу, производ или пројекат на једноставан, разумљив начин. Зато је ”explainer" видео најприкладнији облик промотивних видеа данас, јер као што му и сам назив говори - објашњава. То постиже уз помоћ атрактивних анимираних графика које говоре више од речи и дугих, досадних, неразумљивих реченица. Дакле, уместо да другима причате и објашњавате како им ваша услуга може помоћи - ПРИKАЖИТЕ ИМ ТО јасном поруком у 30-ак секунди.</p>
+	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=EXPLAINER%20ВИДЕО&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
+	       </center>
+	      </div>
+	    </li>	    
+	    <li>
+	      <input id="rad12" type="radio" name="rad">
+	      <label for="rad12">12</label>
+	      <div class="accslide">
+	       <center>
+	      	<div class="graphics" style="background-image: url('cg/advertising.svg');margin-top: 10px;"></div>
+	        <h2 id="naslov">ОГЛАШАВАЊЕ НА РАДИЈУ И ТЕЛЕВИЗИЈИ</h2>
+	        <hr class="brace">
+	        <p>Резервација и закуп простора за оглашавање на свим националним и регионалним радио и тв станицама. После сваке кампање обезбеђен је мониторинг кроз извештај реализованих емитовања. У сарадњи са партнерима можете се оглашавати и на националним телевизијама на свим континентима. За више информација затражите ценовнике који се односе на конкретне медије и географске локације.</p>
+	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=ТВ/РАДИО%20ОГЛАШАВАЊЕ&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
+	       </center>
+	      </div>
+	    </li>	    
+	    <li>
+	      <input id="rad13" type="radio" name="rad">
+	      <label for="rad13">13</label>
+	      <div class="accslide">
+	       <center>
+	      	<div class="graphics" style="background-image: url('cg/apps.svg');margin-top: 10px;"></div>
+	        <h2 id="naslov">ИНТЕРНЕТ САЈТОВИ И АПЛИКАЦИЈЕ</h2>
+	        <hr class="brace">
+	        <p>Kомплетна стратешка поставка интернет сајта, интернет и мобилних апликација. Развој од идеје до готовог производа. Одржавање сајта и апликација уз константан рад на њиховом унапређивању. Kреативна употреба најновијих технологија у циљу обогаћивања комуникације и стицања предности на тржишту.</p>
+	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=САЈТОВИ%20И%20АПЛИКАЦИЈЕ&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
+	       </center>
+	      </div>
+	    </li>
+	  </ul>  
+	</form>
+   <footer>
+  	<span>Фактор7 Креативно.Дигитално © 2019</span>
+  </footer>
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+  <!-- Yandex.Metrika counter -->
+	<script type="text/javascript" >
+	   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+	   ym(54643486, "init", {
+	        clickmap:true,
+	        trackLinks:true,
+	        accurateTrackBounce:true
+	   });
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/54643486" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+</body>
+</html>
