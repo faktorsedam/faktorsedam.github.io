@@ -14,7 +14,7 @@
 		-ms-user-select: none;
 	}
 	body{
-	    background: #15202B;
+	    background: linear-gradient(-45deg, #3E2723, #263238);
 	}
 	#izvoz{
 		float: left;
@@ -25,7 +25,7 @@
 		font-size: 3rem;
     	text-align: center;
     	margin-bottom: 25px;
-		color:#36454f;
+		color:#fff;
 		font-weight: 800;
 	}
 	</style>
@@ -375,14 +375,14 @@
 							type: 'linear', display: true, position: 'left',
 							id: 'y-axis-1',
 						}, {
-							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+							type: 'linear',
 							display: false,
 							position: 'right',
 							id: 'y-axis-2',
 
 							// grid line settings
 							gridLines: {
-								drawOnChartArea: false, // only want the grid lines for one axis to show up
+								drawOnChartArea: false,
 							},
 						}],
 					}
