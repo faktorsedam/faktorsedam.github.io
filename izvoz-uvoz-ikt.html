@@ -1,0 +1,422 @@
+
+<!doctype html>
+<html>
+  <head>
+	<title>Pregled uvoza i izvoza IKT usluga po godinama</title>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<script src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+	<script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+	<style>
+	canvas {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	body{
+	    background: #15202B;
+	}
+	#izvoz{
+		float: left;
+	}
+	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body>
+	<div class="row">
+		<div class="col s6" style="width:48%;">
+			<canvas id="uvoz"></canvas>
+		</div>
+		<div class="col s6" style="width:48%;">
+			<canvas id="izvoz"></canvas>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s6" style="width:98%;">
+			<canvas id="uvozgodisnji"></canvas>
+		</div>
+	</div>	
+	<script>
+		var lineChartDataUvoz = {
+			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Avg', 'Sep', 'Okt', 'Nov', 'Dec'],
+			datasets: [{
+				label: '2019',
+				borderColor: 'yellow',
+				backgroundColor: 'yellow',
+				fill: false,
+				data: [ 33.79506869, 45.61800728, 70.90477354, 55.19240339,
+						49.37289294, 61.51998458, 60.74656162, 39.18428554
+				],
+				yAxisID: 'y-axis-1',
+			}, {
+				label: '2018',
+				borderColor: 'skyblue',
+				backgroundColor: 'skyblue',
+				fill: false,
+				data: [
+					26.14007251, 41.39190128, 51.74450931, 39.16506938, 39.98098087,
+					39.57651209, 41.47703945, 62.53451433, 39.83808394, 41.33799137,
+					47.56561069, 49.11421468				
+				],
+				yAxisID: 'y-axis-1'
+			}, {
+				label: '2017',
+				borderColor: 'tomato',
+				backgroundColor: 'tomato',
+				fill: false,
+				data: [
+					25.26713834, 21.99307859, 33.07576821, 32.7805511, 32.87393111,
+					32.61059896, 41.56714562, 33.66618704, 35.89530752, 38.35982126,
+					40.54680261, 57.24830614
+				],
+				yAxisID: 'y-axis-1'
+			}, {
+				label: '2016',
+				borderColor: 'green',
+				backgroundColor: 'green',
+				fill: false,
+				data: [
+					28.4444317, 27.2615507, 31.02907234, 22.58064631, 27.92838721,
+					25.37641187, 30.12680456, 26.56476889, 23.10548304, 31.3565062,
+					25.54303411, 32.87385786
+				]
+			}, {
+				label: '2015',
+				borderColor: 'indianred',
+				backgroundColor: 'indianred',
+				fill: false,
+				data: [
+					22.49458545, 21.64823114, 26.87352276, 23.56558871, 19.717,
+					22.11808332, 29.39441354, 18.79284097, 19.27135886, 26.79507833,
+					20.81227569, 41.90378623
+				]
+			}, {
+				label: '2014',
+				borderColor: 'orange',
+				backgroundColor: 'orange',
+				fill: false,
+				data: [
+					25.354, 17.524, 21.466, 21.765, 18.783, 18.98,
+					27.88, 20.994, 22.725, 35.629, 26.477, 29.462
+				]
+			}, {
+				label: '2013',
+				borderColor: 'blue',
+				backgroundColor: 'blue',
+				fill: false,
+				data: [
+					25.59846879, 18.5962689, 23.26052918, 24.41432666, 24.54834125,
+					17.07599375, 23.75810571, 24.4964062, 21.08940269, 22.89428458,
+					24.52972758, 27.80062349
+				]
+			}, {
+				label: '2012',
+				borderColor: '#ae2029',
+				backgroundColor: '#ae2029',
+				fill: false,
+				data: [
+					22.733, 18.187, 19.289, 23.206, 21.939, 19.935,
+					25.804, 19.433, 22.082, 27.955, 21.019, 25.536
+				]
+			}, {
+				label: '2011',
+				borderColor: '#d3003f',
+				backgroundColor: '#d3003f',
+				fill: false,
+				data: [
+					15.748, 17.508, 21.533, 19.576, 17.141, 18.998,
+					18.095, 23.454, 20.597, 21.492, 23.728, 23.24
+				]
+			}, {
+				label: '2010',
+				borderColor: '#e34234',
+				backgroundColor: '#e34234',
+				fill: false,
+				data: [
+					19.632, 13.61, 16.218, 15.78, 14.81, 15.528,
+					19.147, 17.814, 17.172, 18.493, 17.162, 29.858
+				]
+			}, {
+				label: '2009',
+				borderColor: '#9f1d35',
+				backgroundColor: '#9f1d35',
+				fill: false,
+				data: [
+					21.343, 14.328, 14.922, 13.467, 14.708, 16.496,
+					19.534, 12.694, 15.607, 22.829, 17.576, 22.499
+				]
+			}, {
+				label: '2008',
+				borderColor: '#990000',
+				backgroundColor: '#990000',
+				fill: false,
+				data: [
+					20.012, 15.012, 15.883, 17.503, 17.458, 15.04,
+					19.426, 16.33, 20.281, 20.328, 15.483, 20.486
+				]
+			}, {
+				label: '2007',
+				borderColor: '#a0d6b4',
+				backgroundColor: '#a0d6b4',
+				fill: false,
+				data: [
+					11.138, 10.541, 15.789, 10.212, 14.911, 11.584,
+					15.41, 12.716, 9.982, 20.082, 19.17, 20.628
+				]
+			}]
+		};
+		// UvozUp/IzvozDown per month
+		var lineChartDataIzvoz = {
+			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Avg', 'Sep', 'Okt', 'Nov', 'Dec'],
+			datasets: [{
+				label: '2019',
+				borderColor: 'yellow',
+				backgroundColor: 'yellow',
+				fill: false,
+				data: [
+					98.80666909, 108.68382481, 117.49908639, 122.50998018,
+					113.99726347, 113.44786256, 126.98869759, 110.9681096
+				],
+				yAxisID: 'y-axis-1',
+			}, {
+				label: '2018',
+				borderColor: 'skyblue',
+				backgroundColor: 'skyblue',
+				fill: false,
+				data: [
+					79.41096196, 74.58554277, 98.04372266, 92.70102259, 88.07050528, 83.33941493,
+					101.72678069, 104.32128862, 88.60382742, 106.55058905, 100.89590836,  116.37600439
+				],
+				yAxisID: 'y-axis-1'
+			}, {
+				label: '2017',
+				borderColor: 'tomato',
+				backgroundColor: 'tomato',
+				fill: false,
+				data: [
+					59.29498133, 64.88637962, 71.75809425, 64.38663807, 72.21287881, 76.29558059,
+					83.27801413, 71.6562676, 68.47046647, 91.63346083, 75.02899797, 100.04599249
+				],
+				yAxisID: 'y-axis-1'
+			}, {
+				label: '2016',
+				borderColor: 'green',
+				backgroundColor: 'green',
+				fill: false,
+				data: [
+					51.34308169, 52.57190341, 57.14502705, 58.61085497, 55.04639694,
+					55.8223729, 59.99869978, 58.44312737, 79.65721771, 62.96045331,
+					69.43872062, 78.47844
+				],
+				yAxisID: 'y-axis-1'
+			}, {
+				label: '2015',
+				borderColor: 'indianred',
+				backgroundColor: 'indianred',
+				fill: false,
+				data: [
+					38.5272126, 47.11881864, 49.17369989, 53.60485005, 42.399,
+					51.58157628, 51.01177831, 44.60198391, 49.26892475, 63.50910982,
+					50.63253908, 69.35099523
+				]
+			}, {
+				label: '2014',
+				borderColor: 'orange',
+				backgroundColor: 'orange',
+				fill: false,
+				data: [
+					35.989, 36.33, 37.926, 34.005, 35.827, 39.229,
+					44.256, 42.835, 43.651, 47.163, 38.211, 51.4
+				]
+			}, {
+				label: '2013',
+				borderColor: 'blue',
+				backgroundColor: 'blue',
+				fill: false,
+				data: [
+					30.77780051, 31.858728, 35.17166822, 38.20063224, 36.55893636,
+					37.20891482, 36.09565117, 39.31477582, 30.78125822, 43.99829912,
+					35.46201454, 41.4939893
+				]
+			}, {
+				label: '2012',
+				borderColor: '#ae2029',
+				backgroundColor: '#ae2029',
+				fill: false,
+				data: [
+					25.478, 26.49, 30.965, 27.414, 30.516, 30.268,
+					29.775, 31.482, 33.775, 34.365, 38.392, 35.983
+				]
+			}, {
+				label: '2011',
+				borderColor: '#d3003f',
+				backgroundColor: '#d3003f',
+				fill: false,
+				data: [
+					20.966, 21.47, 23.117, 23.521, 22.281, 27.976,
+					22.546, 24.099, 29.043, 30.842, 27.917, 38.048
+				]
+			}, {
+				label: '2010',
+				borderColor: '#e34234',
+				backgroundColor: '#e34234',
+				fill: false,
+				data: [
+					17.677, 16.84, 27.687, 16.612, 17.703, 20.253,
+					17.933, 17.635, 18.501, 18.079, 22.182, 28.468
+				]
+			}, {
+				label: '2009',
+				borderColor: '#9f1d35',
+				backgroundColor: '#9f1d35',
+				fill: false,
+				data: [
+					12.979, 14.936, 15.501, 16.353, 14.299, 17.113,
+					15.116, 14.228, 18.125, 17.158, 16.39, 22.162
+				]
+			}, {
+				label: '2008',
+				borderColor: '#990000',
+				backgroundColor: '#990000',
+				fill: false,
+				data: [
+					11.389, 13.808, 13.193, 13.698, 11.91, 17.183,
+					16.1, 13.227, 20.034, 15.451, 13.824, 18.527
+				]
+			}, {
+				label: '2007',
+				borderColor: '#a0d6b4',
+				backgroundColor: '#a0d6b4',
+				fill: false,
+				data: [
+					9.723, 8.316, 8.718, 9.19, 12.168, 10.962,
+					14.495, 10.104, 13.973, 12.597, 13.525, 13.848
+				]
+			}]
+		};
+
+		var barChartDataUvozGodisnji = { // Bars Uvoz Godišnji
+			labels: ['2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019'],
+			datasets: [{
+				label: 'Vrednost godišnjeg Uvoza u mil €',
+				borderColor: '#ff2052',
+				backgroundColor: '#ff2052',
+				data: [
+					172.163, 213.242, 206.003, 215.224, 241.11, 267.117,
+					278.06247878, 287.039, 293.386765, 332.19095479, 425.8846365, 519.8664999
+				]
+			},{
+				label: 'Vrednost godišnjeg Izvoza u mil €',
+				borderColor: '#00bfff',
+				backgroundColor: '#00bfff',
+				data: [
+					137.618, 178.344, 194.361, 239.571, 311.826, 374.903,
+					436.92266832, 486.822, 610.78048856, 739.51629575, 898.94775216, 1134.62556872
+				]
+			}]
+		};
+		
+
+		window.onload = function() {
+			var atx = document.getElementById('uvoz').getContext('2d');
+
+			window.uvoz = Chart.Line(atx, {
+				data: lineChartDataUvoz,
+				options: {
+					responsive: true,
+					hoverMode: 'index',
+					stacked: false,
+					title: {
+						display: true,
+						text: 'Uvoz'
+					},
+					scales: {
+						yAxes: [{
+							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+							display: true,
+							position: 'right',
+							id: 'y-axis-1',
+						}, {
+							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+							display: false,
+							position: 'right',
+							id: 'y-axis-2',
+
+							// grid line settings
+							gridLines: {
+								drawOnChartArea: false, // only want the grid lines for one axis to show up
+							},
+						}],
+					}
+				}
+			});
+
+			var btx = document.getElementById('izvoz').getContext('2d');
+			
+			window.izvoz = Chart.Line(btx, {
+				data: lineChartDataIzvoz,
+				options: {
+					responsive: true,
+					hoverMode: 'index',
+					stacked: false,
+					title: { display: true, text: 'Izvoz' },
+					scales: {
+						yAxes: [{
+							type: 'linear', display: true, position: 'left',
+							id: 'y-axis-1',
+						}, {
+							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+							display: false,
+							position: 'right',
+							id: 'y-axis-2',
+
+							// grid line settings
+							gridLines: {
+								drawOnChartArea: false, // only want the grid lines for one axis to show up
+							},
+						}],
+					}
+				}
+			});
+
+/////// Dodatni pregled, bars
+ 
+			var ctx = document.getElementById('uvozgodisnji').getContext('2d');			
+
+			window.uvozgodisnji = Chart.Bar(ctx, {
+				data: barChartDataUvozGodisnji,
+				options: {
+					responsive: true,
+					hoverMode: 'index',
+					stacked: false,
+					title: {
+						display: false,
+						text: 'Uvoz'
+					},
+					scales: {
+						yAxes: [{
+							type: 'linear',
+							display: true,
+							position: 'right',
+							id: 'y-axis-1',
+						}],
+					}
+				}
+			});
+///////
+
+		};
+
+		document.getElementById('randomizeData').addEventListener('click', function() {
+			lineChartData.datasets.forEach(function(dataset) {
+				dataset.data = dataset.data.map(function() {
+					return randomScalingFactor();
+				});
+			});
+
+			window.myLine.update();
+		});
+	</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
