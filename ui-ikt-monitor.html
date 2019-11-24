@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta charset="utf-8">
+    <title>ICT Export/Import Monitor</title>
+    <link rel="shortcut icon" href="cg/faviconF7.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@4.4.0/dist/echarts.min.js"></script>
+</head>
+<style type="text/css">
+    body{
+        background: #21202D;
+        color: #fff;
+    }
+    .page-footer{
+        background-color: #34324E;
+        height: 10vh;
+    }
+</style>
+<body>
+    <!-- prepare a DOM container with width and height -->
+    <div id="glavni" style="width: 100%;height:90vh;"></div>
+    <footer class="page-footer">
+          <div class="footer-copyright">
+            <div class="container">
+                <a class="grey-text text-lighten-4 left" href="https://faktorsedam.github.io">Видео продукција, анимација, апликације. Креативно. Дигитално.</a>
+                <a class="grey-text text-lighten-4 right" href="https://github.com/faktorsedam/faktorsedam.github.io/issues">Пријави проблем</a>
+            </div>
+          </div>
+    </footer>
+
+
+    <script type="text/javascript">
+        // initialize instance
+        var myChart = echarts.init(document.getElementById('glavni'));
+
+        var upColor = '#ec0000';
+        var upBorderColor = '#8A0000';
+        var downColor = '#00da3c';
+        var downBorderColor = '#008F28';
+        
+        // configuration item and data
+
+        // 数据意义：开盘(open)，收盘(close)，最低(lowest)，最高(highest)
+        var data0 = splitData([
+            ['2007/1', 2320.26,2320.86,2287.3,2362.94],
+            ['2007/2', 2300,2291.3,2288.26,2308.38],
+            ['2007/3', 2295.35,2346.5,2295.35,2346.92],
+            ['2007/4', 2347.22,2358.98,2337.35,2363.8],
+            ['2007/5', 2360.75,2382.48,2347.89,2383.76],
+            ['2007/6', 2383.43,2385.42,2371.23,2391.82],
+            ['2007/7', 2377.41,2419.02,2369.57,2421.15],
+            ['2007/8', 2425.92,2428.15,2417.58,2440.38],
+            ['2007/9', 2411,2433.13,2403.3,2437.42],
+            ['2007/10', 2432.68,2434.48,2427.7,2441.73],
+            ['2007/11', 2430.69,2418.53,2394.22,2433.89],
+            ['2007/12', 2416.62,2432.4,2414.4,2443.03],
+            ['2008/1', 2441.91,2421.56,2415.43,2444.8],
+            ['2008/2', 2420.26,2382.91,2373.53,2427.07],
+            ['2008/3', 2383.49,2397.18,2370.61,2397.94],
+            ['2008/4', 2378.82,2325.95,2309.17,2378.82],
+            ['2008/5', 2322.94,2314.16,2308.76,2330.88],
+            ['2008/6', 2320.62,2325.82,2315.01,2338.78],
+            ['2008/7', 2313.74,2293.34,2289.89,2340.71],
+            ['2008/8', 2297.77,2313.22,2292.03,2324.63],
+            ['2008/9', 2322.32,2365.59,2308.92,2366.16],
+            ['2008/10', 2364.54,2359.51,2330.86,2369.65],
+            ['2008/11', 2332.08,2273.4,2259.25,2333.54],
+            ['2008/12', 2274.81,2326.31,2270.1,2328.14],
+            ['2009/1', 2333.61,2347.18,2321.6,2351.44],
+            ['2009/2', 2340.44,2324.29,2304.27,2352.02],
+            ['2009/3', 2326.42,2318.61,2314.59,2333.67],
+            ['2009/4', 2314.68,2310.59,2296.58,2320.96],
+            ['2009/5', 2309.16,2286.6,2264.83,2333.29],
+            ['2009/6', 2282.17,2263.97,2253.25,2286.33],
+            ['2009/7', 2255.77,2270.28,2253.31,2276.22],
+            ['2009/8', 2269.31,2278.4,2250,2312.08],
+            ['2009/9', 2267.29,2240.02,2239.21,2276.05],
+            ['2009/10', 2244.26,2257.43,2232.02,2261.31],
+            ['2009/11', 2257.74,2317.37,2257.42,2317.86],
+            ['2009/12', 2318.21,2324.24,2311.6,2330.81],
+            ['2010/1', 2321.4,2328.28,2314.97,2332],
+            ['2010/2', 2334.74,2326.72,2319.91,2344.89],
+            ['2010/3', 2318.58,2297.67,2281.12,2319.99],
+            ['2010/4', 2299.38,2301.26,2289,2323.48],
+            ['2010/5', 2273.55,2236.3,2232.91,2273.55],
+            ['2010/6', 2238.49,2236.62,2228.81,2246.87],
+            ['2010/7', 2229.46,2234.4,2227.31,2243.95],
+            ['2010/8', 2234.9,2227.74,2220.44,2253.42],
+            ['2010/9', 2232.69,2225.29,2217.25,2241.34],
+            ['2010/10', 2196.24,2211.59,2180.67,2212.59],
+            ['2010/11', 2215.47,2225.77,2215.47,2234.73],
+            ['2010/12', 2224.93,2226.13,2212.56,2233.04],
+            ['2011/1', 2236.98,2219.55,2217.26,2242.48],
+            ['2011/2', 2218.09,2206.78,2204.44,2226.26],
+            ['2011/3', 2199.91,2181.94,2177.39,2204.99],
+            ['2011/4', 2169.63,2194.85,2165.78,2196.43],
+            ['2011/5', 2195.03,2193.8,2178.47,2197.51],
+            ['2011/6', 2181.82,2197.6,2175.44,2206.03],
+            ['2011/7', 2190.1,2148.35,2126.22,2190.1],
+            ['2011/8', 2218.09,2206.78,2204.44,2226.26],
+            ['2011/9', 2199.91,2181.94,2177.39,2204.99],
+            ['2011/10', 2169.63,2194.85,2165.78,2196.43],
+            ['2011/11', 2195.03,2193.8,2178.47,2197.51],
+            ['2011/12', 2181.82,2197.6,2175.44,2206.03],
+            ['2012/1', 2190.1,2148.35,2126.22,2190.1],
+            ['2012/2', 2190.1,2148.35,2126.22,2190.1],
+            ['2012/3', 2360.75,2382.48,2347.89,2383.76],
+            ['2012/4', 2190.1,2148.35,2126.22,2190.1],
+            ['2012/5', 2190.1,2148.35,2126.22,2190.1],
+            ['2012/6', 2190.1,2148.35,2126.22,2190.1],
+            ['2012/7', 2190.1,2148.35,2126.22,2190.1],
+            ['2012/8', 2190.1,2148.35,2126.22,2190.1],
+            ['2012/9', 2190.1,2148.35,2126.22,2190.1],
+            ['2012/10', 2190.1,2148.35,2126.22,2190.1],
+            ['2012/11', 2190.1,2148.35,2126.22,2190.1],
+            ['2012/12', 2190.1,2148.35,2126.22,2190.1]
+        ]);
+
+
+        function splitData(rawData) {
+            var categoryData = [];
+            var values = []
+            for (var i = 0; i < rawData.length; i++) {
+                categoryData.push(rawData[i].splice(0, 1)[0]);
+                values.push(rawData[i])
+            }
+            return {
+                categoryData: categoryData,
+                values: values
+            };
+        }
+
+        function calculateMA(dayCount) {
+            var result = [];
+            for (var i = 0, len = data0.values.length; i < len; i++) {
+                if (i < dayCount) {
+                    result.push('-');
+                    continue;
+                }
+                var sum = 0;
+                for (var j = 0; j < dayCount; j++) {
+                    sum += data0.values[i - j][1];
+                }
+                result.push(sum / dayCount);
+            }
+            return result;
+        }
+
+
+
+        option = {
+            backgroundColor: '#21202D',
+            title: {
+                text: 'ICT EXPORT/IMPORT MONITOR',
+                left: 0,
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            legend: {
+                data: ['O', 'UVOZ', 'IZVOZ'],
+                textStyle: {
+                    color: '#ccc'
+                }
+            },
+            grid: {
+                left: '4%',
+                right: '4%',
+                bottom: '10%'
+            },
+            xAxis: {
+                type: 'category',
+                data: data0.categoryData,
+                scale: true,
+                boundaryGap : true,
+                axisLine: {onZero: false},
+                splitLine: {show: false},
+                splitNumber: 20,
+                min: 'dataMin',
+                max: 'dataMax',
+                axisLine: { lineStyle: { color: '#353442' } }
+            },
+            yAxis: {
+                scale: true,
+                splitLine: {show: true, lineStyle: { color: '#353442' }},
+                axisLine: { lineStyle: { color: '#353442' } }
+            },
+            graphic: [
+                {
+                    type: 'image',
+                    id: 'logo',
+                    right: 0,
+                    top: 0,
+                    z: -10,
+                    bounding: 'raw',
+                    origin: [75, 75],
+                    style: {
+                        image: 'cg/faviconF7.png',
+                        width: 150,
+                        height: 150,
+                        opacity: 0.1
+                    }
+                },
+                {
+                    type: 'group',
+                    left: '80%',
+                    top: 'center',
+                    children: []
+                }
+            ],            
+            dataZoom: [
+                {
+                    textStyle: {color: 'gold'},
+                    type: 'inside',
+                    start: 0,
+                    end: 100,
+                    dataBackground: {
+                        areaStyle: {
+                            color: '#000'
+                        },
+                        lineStyle: {
+                            opacity: 0.8,
+                            color: '#8392A5'
+                        }
+                    },
+                    handleStyle: {
+                        color: '#fff',
+                        shadowBlur: 3,
+                        shadowColor: 'rgba(0, 0, 0, 0.6)',
+                        shadowOffsetX: 2,
+                        shadowOffsetY: 2
+                    }
+                },
+                {
+                    show: true,
+                    type: 'slider',
+                    y: '95%',
+                    start: 0,
+                    end: 100
+                }
+            ],
+            series: [
+                {
+                    name: 'O',
+                    type: 'candlestick',
+                    data: data0.values,
+                    itemStyle: {
+                        normal: {
+                            color: upColor,
+                            color0: downColor,
+                            borderColor: upBorderColor,
+                            borderColor0: downBorderColor
+                        }
+                    },
+                    markPoint: {
+                        label: {
+                            normal: {
+                                formatter: function (param) {
+                                    return param != null ? Math.round(param.value) : '';
+                                }
+                            }
+                        },
+                        data: [
+                            {
+                                name: 'SARMA',
+                                coord: ['2007/1', 2300],
+                                value: 2300,
+                                itemStyle: {
+                                    normal: {color: 'blue'}
+                                }
+                            },
+                            {
+                                name: 'highest value',
+                                type: 'max',
+                                valueDim: 'highest'
+                            },
+                            {
+                                name: 'lowest value',
+                                type: 'min',
+                                valueDim: 'lowest'
+                            },
+                            {
+                                name: 'average value on close',
+                                type: 'average',
+                                valueDim: 'close'
+                            }
+                        ],
+                        tooltip: {
+                            formatter: function (param) {
+                                return param.name + '<br>' + (param.data.coord || '');
+                            }
+                        }
+                    },
+                    markLine: {
+                        symbol: ['none', 'none'],
+                        data: [
+                            [
+                                {
+                                    name: 'from lowest to highest',
+                                    type: 'min',
+                                    valueDim: 'lowest',
+                                    symbol: 'circle',
+                                    symbolSize: 10,
+                                    label: {
+                                        normal: {show: false},
+                                        emphasis: {show: false}
+                                    }
+                                },
+                                {
+                                    type: 'max',
+                                    valueDim: 'highest',
+                                    symbol: 'circle',
+                                    symbolSize: 10,
+                                    label: {
+                                        normal: {show: false},
+                                        emphasis: {show: false}
+                                    }
+                                }
+                            ],
+                            {
+                                name: 'min line on close',
+                                type: 'min',
+                                valueDim: 'close'
+                            },
+                            {
+                                name: 'max line on close',
+                                type: 'max',
+                                valueDim: 'close'
+                            }
+                        ]
+                    }
+                },
+                {
+                    name: 'UVOZ',
+                    type: 'line',
+                    data: calculateMA(5),
+                    smooth: true,
+                    lineStyle: {
+                        normal: {opacity: 1}
+                    }
+                },
+                {
+                    name: 'IZVOZ',
+                    type: 'line',
+                    data: calculateMA(10),
+                    smooth: true,
+                    lineStyle: {
+                        normal: {opacity: 1}
+                    }
+                }
+            ]
+        };
+
+        // use configuration item and data specified to show chart
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

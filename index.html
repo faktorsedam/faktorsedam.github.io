@@ -1,219 +1,518 @@
 <!DOCTYPE html>
-<html lang="sr_RS">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Услуге видео и аудио продукције, креирања 2д и 3д анимација и визуелних ефеката. Садржај визуелног и звучног приказа за тв рекламе, видео садржај за интернет, кратке форме медија као и за специјалне захтеве. Од креирања креативног концепта, преко организације снимања и снимања, до финалне постпродукције и пласирања у етар. Интернет и интранет сајтови и апликације за десктоп, интернет, интранет и мобилне уређаје.">
-  <title>Фактор 7</title>
   <link rel="shortcut icon" href="cg/faviconF7.png" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="css/global.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Video, animacija, grafika, aplikacije</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+  <!-- CSS -->
+  <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+  <style type="text/css">
+
+#app {
+  /*
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;*/
+}
+
+#wrapper {
+  text-align: center;
+}
+
+.glitch {
+  /* position: relative; */
+  color: white;
+  /*font-size: 4em;*/
+  /*letter-spacing: .5em;*/
+  animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+.glitch::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  left: 2px;
+  text-shadow: -2px 0 #ff00c1;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  left: -2px;
+  text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+  animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(82px, 9999px, 44px, 0);
+    transform: skew(0.16deg);
+  }
+  5% {
+    clip: rect(73px, 9999px, 76px, 0);
+    transform: skew(0.94deg);
+  }
+  10% {
+    clip: rect(90px, 9999px, 93px, 0);
+    transform: skew(0.59deg);
+  }
+  15% {
+    clip: rect(54px, 9999px, 89px, 0);
+    transform: skew(0.85deg);
+  }
+  20% {
+    clip: rect(57px, 9999px, 34px, 0);
+    transform: skew(0.53deg);
+  }
+  25% {
+    clip: rect(20px, 9999px, 87px, 0);
+    transform: skew(0.33deg);
+  }
+  30% {
+    clip: rect(68px, 9999px, 80px, 0);
+    transform: skew(0.42deg);
+  }
+  35% {
+    clip: rect(50px, 9999px, 88px, 0);
+    transform: skew(0.9deg);
+  }
+  40% {
+    clip: rect(23px, 9999px, 38px, 0);
+    transform: skew(0.08deg);
+  }
+  45% {
+    clip: rect(74px, 9999px, 95px, 0);
+    transform: skew(0.96deg);
+  }
+  50% {
+    clip: rect(80px, 9999px, 59px, 0);
+    transform: skew(0.14deg);
+  }
+  55% {
+    clip: rect(91px, 9999px, 74px, 0);
+    transform: skew(0.65deg);
+  }
+  60% {
+    clip: rect(100px, 9999px, 65px, 0);
+    transform: skew(0.38deg);
+  }
+  65% {
+    clip: rect(63px, 9999px, 6px, 0);
+    transform: skew(0.44deg);
+  }
+  70% {
+    clip: rect(61px, 9999px, 54px, 0);
+    transform: skew(0.64deg);
+  }
+  75% {
+    clip: rect(46px, 9999px, 15px, 0);
+    transform: skew(0.32deg);
+  }
+  80% {
+    clip: rect(35px, 9999px, 43px, 0);
+    transform: skew(0.04deg);
+  }
+  85% {
+    clip: rect(62px, 9999px, 43px, 0);
+    transform: skew(0.05deg);
+  }
+  90% {
+    clip: rect(53px, 9999px, 77px, 0);
+    transform: skew(0.43deg);
+  }
+  95% {
+    clip: rect(86px, 9999px, 20px, 0);
+    transform: skew(0.37deg);
+  }
+  100% {
+    clip: rect(96px, 9999px, 11px, 0);
+    transform: skew(0.37deg);
+  }
+}
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(45px, 9999px, 94px, 0);
+    transform: skew(0.04deg);
+  }
+  5% {
+    clip: rect(11px, 9999px, 3px, 0);
+    transform: skew(0.34deg);
+  }
+  10% {
+    clip: rect(47px, 9999px, 60px, 0);
+    transform: skew(0.7deg);
+  }
+  15% {
+    clip: rect(69px, 9999px, 95px, 0);
+    transform: skew(0.09deg);
+  }
+  20% {
+    clip: rect(25px, 9999px, 21px, 0);
+    transform: skew(0.97deg);
+  }
+  25% {
+    clip: rect(85px, 9999px, 67px, 0);
+    transform: skew(0.49deg);
+  }
+  30% {
+    clip: rect(78px, 9999px, 28px, 0);
+    transform: skew(0.64deg);
+  }
+  35% {
+    clip: rect(77px, 9999px, 76px, 0);
+    transform: skew(0.78deg);
+  }
+  40% {
+    clip: rect(71px, 9999px, 34px, 0);
+    transform: skew(0.05deg);
+  }
+  45% {
+    clip: rect(100px, 9999px, 1px, 0);
+    transform: skew(0.48deg);
+  }
+  50% {
+    clip: rect(73px, 9999px, 16px, 0);
+    transform: skew(0.44deg);
+  }
+  55% {
+    clip: rect(11px, 9999px, 38px, 0);
+    transform: skew(0.78deg);
+  }
+  60% {
+    clip: rect(53px, 9999px, 85px, 0);
+    transform: skew(0.25deg);
+  }
+  65% {
+    clip: rect(30px, 9999px, 88px, 0);
+    transform: skew(0.58deg);
+  }
+  70% {
+    clip: rect(19px, 9999px, 64px, 0);
+    transform: skew(0.99deg);
+  }
+  75% {
+    clip: rect(17px, 9999px, 85px, 0);
+    transform: skew(0.58deg);
+  }
+  80% {
+    clip: rect(95px, 9999px, 84px, 0);
+    transform: skew(0.31deg);
+  }
+  85% {
+    clip: rect(20px, 9999px, 19px, 0);
+    transform: skew(0.26deg);
+  }
+  90% {
+    clip: rect(37px, 9999px, 61px, 0);
+    transform: skew(0.62deg);
+  }
+  95% {
+    clip: rect(100px, 9999px, 86px, 0);
+    transform: skew(0.79deg);
+  }
+  100% {
+    clip: rect(95px, 9999px, 61px, 0);
+    transform: skew(0.85deg);
+  }
+}
+@keyframes glitch-skew {
+  0% {
+    transform: skew(0deg);
+  }
+  10% {
+    transform: skew(3deg);
+  }
+  20% {
+    transform: skew(2deg);
+  }
+  30% {
+    transform: skew(3deg);
+  }
+  40% {
+    transform: skew(-4deg);
+  }
+  50% {
+    transform: skew(4deg);
+  }
+  60% {
+    transform: skew(-2deg);
+  }
+  70% {
+    transform: skew(1deg);
+  }
+  80% {
+    transform: skew(-4deg);
+  }
+  90% {
+    transform: skew(-3deg);
+  }
+  100% {
+    transform: skew(-1deg);
+  }
+}    
+  </style>
 </head>
 
-<body id="particles-js">
-	<form>
-	  <ul>
-	    <li>
-	      <input id="rad1" type="radio" name="rad">
-	      <label for="rad1">1<h1 class="naslov-vertikalni">ОПШТЕ ИНФОРМАЦИЈЕ</h1></label>
-	      <div class="accslide">
-	      	<div class="graphics" style="background-image: url('cg/sedmica.png');"></div>
-	        <h2 id="naslov">ОПШТЕ ИНФОРМАЦИЈЕ</h2>
-	        <hr class="brace">
-	        <p>Услуге видео и аудио продукције, креирања 2д и 3д анимација и визуелних ефеката. Садржај визуелног и звучног приказа за тв рекламе, видео садржај за интернет, кратке форме медија као и за специјалне захтеве. Од креирања креативног концепта, преко организације снимања и снимања, до финалне постпродукције и пласирања у етар. Интернет и интранет сајтови и апликације за десктоп, интернет, интранет и мобилне уређаје.</p>
-	      </div>
-	    </li>
-	    <li>
-	      <input id="rad2" type="radio" name="rad">
-	      <label for="rad2">2<h1 class="naslov-vertikalni">ПРОДУКЦИЈА ТВ И РАДИО РЕКЛАМА</h1></label>
-	      <div class="accslide">
-	       <center>
-	      	<div class="graphics" style="background-image: url('cg/tv-unit.svg');"></div>
-	        <h2 id="naslov">ПРОДУкЦИЈА ТВ И РАДИО РЕкЛАМА</h2>
-	        <hr class="brace">
-	        <p>Широка лепеза у избору саме форме. Уколико имате идеју и желите да је претворите у рекламни спот, ово је права адреса. Могуће је креирати видео садржај у виду ТВ реклама или видео презентација поштујући све норме, правила и стандарде за приказ на националним ТВ станицама као и за приказ на интернету.</p>
-	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=ПРОДУКЦИЈА%20ТВ/РАДИО%20РЕКЛАМА&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
-	       </center>
-	      </div>
-	    </li>
-	    <li>
-	      <input id="rad3" type="radio" name="rad">
-	      <label for="rad3">3<h1 class="naslov-vertikalni">ПРОДУКЦИЈА ВИДЕО САДРЖАЈА</h1></label>
-	      <div class="accslide">
-	       <center>
-	      	<div class="graphics" style="background-image: url('cg/videocontent.svg'); margin-top: 10px;"></div>
-	        <h2 id="naslov">ПРОДУкЦИЈА ВИДЕО САДРЖАЈА</h2>
-	        <hr class="brace">
-	        <p>Видео услуга од предпродукције до постпродукције. Употребом професионалне опреме и применом стручног знања, комуникација са јавношћу биће усмерена на перфектан начин и у оквиру буџета којим располажете. Креативност, комерцијални видео формати, искуство и у многим другим продукцијским областима. Услуге креирања сценарија, драмских заплета, режирања, снимања, нелинеарне монтаже, корекције боја, музике и сл. Снимање тв репортажа, креирање корпоративних филмова, играних тв реклама, трик и анимираних спотова...</p>
-	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=ПРОДУKЦИЈА%20ВИДЕО%20САДРЖАЈА&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
-	       </center>
-	      </div>
-	    </li>
-	    <li>
-	      <input id="rad4" type="radio" name="rad">
-	      <label for="rad4">4<h1 class="naslov-vertikalni">3Д МОДЕЛИ</h1></label>
-	      <div class="accslide">
-	       <center>	      	
-	      	<div class="graphics" style="background-image: url('cg/3dmodel.svg');"></div>
-	        <h2 id="naslov">3Д МОДЕЛИ</h2>
-	        <hr class="brace">
-	        <p>Богат 3Д садржај за потребе свих медија, почев од штампаних медија, преко интернет медија до телевизије. Креативно и квалификовано са посебно посвећеном пажњом сваком 3Д моделу како би се пружио садржај који у потпуности одговара потребама. Стручност и вештине из мултидисциплинарних области доприносе креирању додатне вредности финалних производа.</p>
-	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=3Д%20МОДЕЛИ&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
-	       </center>	        
-	      </div>
-	    </li>
-	    <li>
-	      <input id="rad5" type="radio" name="rad">
-	      <label for="rad5">5<h1 class="naslov-vertikalni">2Д и 3Д АНИМАЦИЈЕ</h1></label>
-	      <div class="accslide">
-	       <center>	      	
-	      	<div class="graphics" style="background-image: url('cg/animation.svg');"></div>
-	        <h2 id="naslov">2Д и 3Д АНИМАЦИЈЕ</h2>
-	        <hr class="brace">
-	        <p>Многе компаније користе 3Д анимацију како би подигле квалитет својих маркетиншких кампања. На посматрача, покретна 3Д слика има већи утицај него статична. То узрокује више емоција и увећани интерес за поруку коју реклама шаље. Врхунска 3Д реклама помаже да производ остави што бољи утисак и пренесе жељену поруку потрошачима.</p>
-	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=2Д/3Д%20АНИМАЦИЈЕ&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
-	       </center>	      
-	      </div>
-	    </li>	    
-	    <li>
-	      <input id="rad6" type="radio" name="rad">
-	      <label for="rad6">6<h1 class="naslov-vertikalni">АНИМИРАНЕ ТВ РЕКЛАМЕ</h1></label>
-	      <div class="accslide">
-	       <center>
-	      	<div class="graphics" style="background-image: url('cg/marketing.svg');margin-top: 10px;"></div>
-	        <h2 id="naslov">АНИМИРАНЕ ТВ РЕкЛАМЕ</h2>
-	        <hr class="brace">
-	        <p>Kреирање тв рекламе не подразумева увек велике и скупе продукције са снимањима, глумцима и сл. Данас се све већи број оглашивача одлучује управо за анимиране тв рекламе зато што анимација у исто време може бити динамична(како би у мало секунди представила што више информација) и визуелно привлачна(како би привукла пажњу гледалаца). Управо због огромних креативних могућности код анимираних графика и визуала, анимирана тв реклама могла би и за ваш бренд бити пун погодак.</p>
-	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=АНИМИРАНЕ%20РЕКЛАМЕ&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
-	       </center>
-	      </div>
-	    </li>
-	    <li>
-	      <input id="rad7" type="radio" name="rad">
-	      <label for="rad7">7<h1 class="naslov-vertikalni">ВИЗУЕЛНИ ЕФЕКТИ</h1></label>
-	      <div class="accslide">
-	       <center>
-	      	<div class="graphics" style="background-image: url('cg/vfx.svg');margin-top: 10px;"></div>
-	        <h2 id="naslov">ВИЗУЕЛНИ ЕФЕкТИ</h2>
-	        <hr class="brace">
-	        <p>Визуелни ефекти(скраћено VFX) су процеси којима се стварају слике или видео и манипулише садржај ван контекста акције уживо. Они укључују интеграцију у акције снимака и слика генерисаних да створе окружење које изгледа реално, али би било опасно, скупо, непрактично или једноставно немогуће снимити камером.</p>
-	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=ВИЗУЕЛНИ%20ЕФЕКТИ&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
-	       </center>
-	      </div>
-	    </li>
-	    <li>
-	      <input id="rad8" type="radio" name="rad">
-	      <label for="rad8">8<h1 class="naslov-vertikalni">ПРОМО ФИЛМОВИ</h1></label>
-	      <div class="accslide">
-	       <center>
-	      	<div class="graphics" style="background-image: url('cg/puzzle.svg');margin-top: 10px;"></div>
-	        <h2 id="naslov">ПРОМО ФИЛМОВИ</h2>
-	        <hr class="brace">
-	        <p>Уколико имате фирму, бренд или сајт и желите да промовишете или једноставно објасните Ваш производ или услугу тада је прави избор промо филм. Он може бити у форми 2д или 3д анимације, као и снимљен камером или комбинација напред набројаног и непоменутог у овом тексту.</p>
-	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=ПРОМО%20ФИЛМОВИ&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
-	       </center>
-	      </div>
-	    </li>	    
-	    <li>
-	      <input id="rad9" type="radio" name="rad">
-	      <label for="rad9">9<h1 class="naslov-vertikalni">РАДИО РЕКЛАМЕ</h1></label>
-	      <div class="accslide">
-	       <center>
-	      	<div class="graphics" style="background-image: url('cg/microphone-radio.svg');margin-top: 10px;"></div>
-	        <h2 id="naslov">РАДИО РЕкЛАМЕ</h2>
-	        <hr class="brace">
-	        <p>Радио рекламе које читају еминентни радијски и тв водитељи. Креирање ауторске/оригиналне музике за радио рекламу.</p>
-	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=РАДИО%20РЕКЛАМЕ&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
-	       </center>
-	      </div>
-	    </li>
-	    <li>
-	      <input id="rad10" type="radio" name="rad">
-	      <label for="rad10">10<h1 class="naslov-vertikalni">ПРЕЗЕНТАЦИОНИ ВИДЕО</h1></label>
-	      <div class="accslide">
-	       <center>
-	      	<div class="graphics" style="background-image: url('cg/promo-video.svg');"></div>
-	        <h2 id="naslov">ПРЕЗЕНТАЦИОНИ ВИДЕО</h2>
-	        <hr class="brace">
-	        <p>Анимирани презентациони видео креира се као комбинација фотографија, анимираних графика и типографије. То значи да можете доставити своје фотографије или се могу искористити прикладне "stock" фотографије, којима се додају додатни ефекти и покрет. У комбинацији са посебним графикама, типографијом и атрактивном музичком подлогом презентациони видео може бити пун погодак за Ваше промотивне кампање.</p>
-	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=ПРЕЗЕНТАЦИОНИ%20ВИДЕО&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
-	       </center>
-	      </div>
-	    </li>
-	    <li>
-	      <input id="rad11" type="radio" name="rad">
-	      <label for="rad11">11<h1 class="naslov-vertikalni">EXPLAINER VIDEO ОБЈАШЊАВА СВЕ</h1></label>
-	      <div class="accslide">
-	       <center>
-	      	<div class="graphics" style="background-image: url('cg/explainer.svg');"></div>
-	        <h2 id="naslov">EXPLAINER VIDEO ОБЈАШЊАВА СВЕ</h2>
-	        <hr class="brace">
-	        <p>Некад је заиста тешко представити неку услугу, производ или пројекат на једноставан, разумљив начин. Зато је ”explainer" видео најприкладнији облик промотивних видеа данас, јер као што му и сам назив говори - објашњава. То постиже уз помоћ атрактивних анимираних графика које говоре више од речи и дугих, досадних, неразумљивих реченица. Дакле, уместо да другима причате и објашњавате како им ваша услуга може помоћи - ПРИKАЖИТЕ ИМ ТО јасном поруком у 30-ак секунди.</p>
-	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=EXPLAINER%20ВИДЕО&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
-	       </center>
-	      </div>
-	    </li>	    
-	    <li>
-	      <input id="rad12" type="radio" name="rad">
-	      <label for="rad12">12<h1 class="naslov-vertikalni">ОГЛАШАВАЊЕ НА РАДИЈУ И ТЕЛЕВИЗИЈИ</h1></label>
-	      <div class="accslide">
-	       <center>
-	      	<div class="graphics" style="background-image: url('cg/advertising.svg');margin-top: 10px;"></div>
-	        <h2 id="naslov">ОГЛАШАВАЊЕ НА РАДИЈУ И ТЕЛЕВИЗИЈИ</h2>
-	        <hr class="brace">
-	        <p>Резервација и закуп простора за оглашавање на свим националним и регионалним радио и тв станицама. После сваке кампање обезбеђен је мониторинг кроз извештај реализованих емитовања. У сарадњи са партнерима можете се оглашавати и на националним телевизијама на свим континентима. За више информација затражите ценовнике који се односе на конкретне медије и географске локације.</p>
-	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=ТВ/РАДИО%20ОГЛАШАВАЊЕ&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
-	       </center>
-	      </div>
-	    </li>	    
-	    <li>
-	      <input id="rad13" type="radio" name="rad">
-	      <label for="rad13">13<h1 class="naslov-vertikalni">ИНТЕРНЕТ САЈТОВИ И АПЛИКАЦИЈЕ</h1></label>
-	      <div class="accslide">
-	       <center>
-	      	<div class="graphics" style="background-image: url('cg/apps.svg');margin-top: 10px;"></div>
-	        <h2 id="naslov">ИНТЕРНЕТ САЈТОВИ И АПЛИКАЦИЈЕ</h2>
-	        <hr class="brace">
-	        <p>Kомплетна стратешка поставка интернет сајта, интернет и мобилних апликација. Развој од идеје до готовог производа. Одржавање сајта и апликација уз константан рад на њиховом унапређивању. Kреативна употреба најновијих технологија у циљу обогаћивања комуникације и стицања предности на тржишту.</p>
-	        <a class="button" href="mailto:faktorsedam@yandex.ru?subject=САЈТОВИ%20И%20АПЛИКАЦИЈЕ&body=>>>[%20Овде%20прецизирајте%20своје%20захтеве%20и%20пошаљите%20поруку%20]<<<">Наручи</a>
-	       </center>
-	      </div>
-	    </li>
-	    <li>
-	      <input id="rad14" type="radio" name="rad">
-	      <label for="rad14">14<h1 class="naslov-vertikalni">РАДОВИ И РЕФЕРЕНЦЕ</h1></label>
-	      <div class="accslide">
-	       <center>
-	      	<div class="graphics" style="background-image: url('cg/reference.svg');margin-top: 10px;"></div>
-	        <h2 id="naslov">РАДОВИ И РЕФЕРЕНЦЕ</h2>
-	        <hr class="brace">
-	        <p></p>
-	        <a class="button" href="showcasevideo.html">Видео</a>
-	        <p></p>
-	        <a class="button" href="3dmodels-showcase.html">3Д Модели</a>
-	       </center>
-	      </div>
-	    </li>
-	  </ul>  
-	</form>
-   <footer>
-  	<span>Видео продукција и анимација. Креативно. Дигитално.</span><a href="https://github.com/faktorsedam/faktorsedam.github.io/issues" style="float: right;"><span>Пријави проблем</span></a>
-  </footer>
-  <script src="js/particles.js"></script>
-  <script src="js/main.js"></script>
-  <!-- Yandex.Metrika counter -->
-	<script type="text/javascript" >
-	   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-	   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-	   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+<body id="page-top">
 
-	   ym(54643486, "init", {
-	        clickmap:true,
-	        trackLinks:true,
-	        accurateTrackBounce:true
-	   });
-	</script>
-	<noscript><div><img src="https://mc.yandex.ru/watch/54643486" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <!-- /Yandex.Metrika counter -->
+  <!-- Navigation -->
+  <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="#page-top">Navigacija</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#page-top">Video, animacija, grafika, aplikacije</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#about">Više informacija</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#services">Šta možete očekivati</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#contact">Kontakt</a>
+      </li>
+       <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="https://github.com/faktorsedam/faktorsedam.github.io/issues">Prijavi problem</a>
+      </li>     
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header class="masthead d-flex">
+    <div class="container text-center my-auto">
+      <h1 class="mb-1 glitch" style="color:white" data-text="Video, animacija, grafika, aplikacije">Video, animacija, grafika, aplikacije</h1>
+      <h3 class="mb-5"><mark><em>Digitalni sadržaj za nove i tradicionalne medije</em></mark></h3>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about" style="background-color:rgba(0,0,0,0);">Saznaj Više</a>
+    </div>
+    <div class="overlay"></div>
+  </header>
+
+  <!-- About -->
+  <section class="content-section bg-light" id="about">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h2>Zaokružena ponuda usluga za Vaš sledeći projekat!</h2><br>
+          <p class="lead mb-5">Video i audio produkcija, kreiranje 2d i 3d animacija i vizuelnih efekata.<br><br>Sadržaj vizuelnog i zvučnog prikaza za štampane, elektronske i nove medije.<br><br>Desktop, web i mobilne aplikacije.</p><br><br>
+          <a class="btn btn-danger btn-xl js-scroll-trigger" href="#services" style="color: #dc3545; background-color: rgba(0,0,0,0);border-color: #dc3545;">Usluge</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="content-section bg-primary text-white text-center" id="services" style="background: linear-gradient(to bottom right, rgb(64, 158, 255), rgb(64, 128, 255), rgb(53, 120, 229));">
+    <div class="container">
+      <div class="content-section-heading">
+        <h3 class="text-secondary mb-0"><mark>Usluge</mark></h3>
+        <h2 class="mb-5">Šta možete očekivati</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+          <span class="service-icon mx-auto mb-3">
+            <i class="icon-screen-smartphone"></i>
+          </span>
+          <h4>
+            <strong>Aplikacije</strong>
+          </h4>
+          <p class="text-faded mb-0">Desktop, web i mobilne aplikacije</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+          <span class="service-icon mx-auto mb-3">
+            <i class="icon-pencil"></i>
+          </span>
+          <h4>
+            <strong>Dizajn</strong>
+          </h4>
+          <p class="text-faded mb-0">Kreativno rešenje, sa ili bez eksperimenata</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+          <span class="service-icon mx-auto mb-3">
+            <i class="icon-like"></i>
+          </span>
+          <h4>
+            <strong>Omiljenost</strong>
+          </h4>
+          <p class="text-faded mb-0">Korisnici će
+            <i class="fas fa-heart"></i>
+            rešenje i kvalitet!</p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <span class="service-icon mx-auto mb-3">
+            <i class="icon-mustache"></i>
+          </span>
+          <h4>
+            <strong>Iskustvo</strong>
+          </h4>
+          <p class="text-faded mb-0">Trčanje ekstra milja se podrazumeva</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Callout -->
+  <section class="callout">
+    <div class="container text-center">
+      <h2 class="mx-auto mb-5">Treba Vam
+        <em>nešto</em>
+        specifično?</h2>
+      <a class="btn btn-primary btn-xl" href="mailto:faktorsedam@yandex.ru?subject=NEŠTO%20SPECIFIČNO&body=>>>[%20Ovde%20precizirajte%20svoje%20potrebe%20i%20pošaljite%20poruku%20]<<<" style="background-color:rgba(0,0,0,0);">Javite!</a>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="content-section" id="portfolio">
+    <div class="container">
+      <div class="content-section-heading text-center">
+        <h3 class="text-secondary mb-0">Portfolio</h3>
+        <h2 class="mb-5">&Reference</h2>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="3dmodels-showcase.html">
+            <span class="caption">
+              <span class="caption-content">
+                <h1>3D modeli i grafika</h1>
+                <p class="mb-0">Za štampane, elektronske i nove medije.</p>
+              </span>
+            </span>
+            <img class="img-fluid" src="img/portfolio-1.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="showcasevideo.html">
+            <span class="caption">
+              <span class="caption-content">
+                <h1>Animacije i video</h1>
+                <p class="mb-0">Za elektronske i nove medije.</p>
+              </span>
+            </span>
+            <img class="img-fluid" src="img/portfolio-2.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h1>Zvuk</h1>
+                <p class="mb-0">Autorski zvuk i vokali za elektronske i nove medije.</p>
+              </span>
+            </span>
+            <img class="img-fluid" src="img/portfolio-3.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="izvoz-uvoz-ikt.html">
+            <span class="caption">
+              <span class="caption-content">
+                <h1>Aplikacije</h1>
+                <p class="mb-0">Za web, mobilne i desktop platforme</p>
+              </span>
+            </span>
+            <img class="img-fluid" src="img/portfolio-4.jpg" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="content-section bg-primary text-white" style="background: linear-gradient(to bottom right, rgb(64, 158, 255), rgb(64, 128, 255), rgb(53, 120, 229));">
+    <div class="container text-center">
+      <h2 class="mb-4">Ovima ispod je nemoguće odoleti...</h2>
+      <a href="mailto:faktorsedam@yandex.ru?subject=Narudžbina&body=>>>[%20Ovde%20precizirajte%20svoje%20potrebe%20i%20pošaljite%20poruku%20]<<<" class="btn btn-xl btn-light mr-4">Naruči!</a>
+      <a href="mailto:faktorsedam@yandex.ru?subject=Dodatna%20pitanja&body=>>>[%20Ovde%20precizirajte%20svoja%20pitanja%20i%20pošaljite%20poruku%20]<<<" class="btn btn-xl btn-dark">Dodatna pitanja!</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center" id="contact">
+    <div class="container">
+      <ul class="list-inline mb-5">
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="https://facebook.com/n0v1c4" target="_blank">
+            <i class="icon-social-facebook"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="https://www.linkedin.com/in/novica-z-63b735191/" target="_blank">
+            <i class="icon-social-linkedin"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white" href="https://github.com/faktorsedam" target="_blank">
+            <i class="icon-social-github"></i>
+          </a>
+        </li>
+      </ul>
+      <p class="text-muted small mb-0">&copy; 2019 Novica Živković</p>
+    </div>
+  </footer>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(54643486, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/54643486" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts -->
+  <script src="js/stylish-portfolio.min.js"></script>
+
 </body>
+
 </html>
