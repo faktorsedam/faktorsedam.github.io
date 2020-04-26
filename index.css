@@ -1,0 +1,472 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+audio {
+  width: 100%;
+}
+audio::-webkit-media-controls-panel{
+  background-color:#7B86FF;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+main{
+  padding-bottom: 1rem;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+@font-face {
+  font-family: DINWebPro-Light;
+  src: url("fonts/DINWebPro-Light.eot");
+  src: url('fonts/DINWebPro-Light.eot?#iefix') format('embedded-opentype'), url('fonts/DINWebPro-Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: DINWebPro;
+  src: url("fonts/DINWebPro.eot");
+  src: url('fonts/DINWebPro.eot?#iefix') format('embedded-opentype'), url('fonts/DINWebPro.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: DINWebPro;
+  src: url("fonts/DINWebPro-Medium.eot");
+  src: url('fonts/DINWebPro-Medium.eot?#iefix') format('embedded-opentype'), url("fonts/DINWebPro-Medium.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+html {
+  height: 100%;
+}
+body {
+  background: white;
+  color: #000;
+  font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  line-height: 1.48;
+  font-size: 12px;
+}
+.flexWrapper {
+  min-height: 100vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex: 1;
+  flex: 1;
+}
+b {
+  font-weight: bold;
+  font-size: 12px;
+}
+a {
+  font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #4E5DFF;
+  text-decoration: none;
+}
+a:hover {
+  color: #7B86FF;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  margin: 15px 0;
+  padding: 0;
+}
+ul li:before {
+  color: #F00;
+  font-size: 10px;
+}
+ul li {
+  margin: 7px 0 0 0;
+}
+.icon {
+  color: #4E5DFF;
+}
+.sticky-container {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  background: white;
+}
+.sticky-container .logo {
+  height: 61px;
+}
+.sticky-container .logo object {
+  margin: 10px 0 0 16px;
+  width: 128px;
+}
+.sticky-container .container {
+  margin: 15px auto 0;
+  width: 900px;
+  max-width: 80%;
+}
+.sticky-container .container .header {
+  border-left: 1px solid #4E5DFF;
+  height: 92px;
+  margin: 37px 0 8px 0;
+}
+.sticky-container .container .header .mgnl-icon {
+  position: relative;
+  color: #7B86FF;
+  font-size: 50px;
+  top: -7px;
+  left: -58px;
+}
+.sticky-container .container .header h1 {
+  position: relative;
+  font-family: DINWebPro-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  margin: 0 0 0 15px;
+  top: -50px;
+}
+.sticky-container .container .header h2 {
+  position: relative;
+  font-family: DINWebPro-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color: #4E5DFF;
+  margin: 20px 0 0 16px;
+  top: -53px;
+}
+.sticky-container .container .header .square {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  background: white;
+  bottom: 50px;
+  left: 11px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.page {
+  background: #ECECEC;
+  margin: 193px 0 0 0;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+.page .container {
+  margin: 0 auto;
+  width: 900px;
+  max-width: 80%;
+}
+.page .container p {
+  margin: 29px 0 0 17px;
+}
+.page .container section h3 {
+  color: #4E5DFF;
+  padding: 23px 0 6px 17px;
+  font-family: DINWebPro-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  border-bottom: 1px solid #4E5DFF;
+  margin: 24px 0 10px 0;
+}
+.page .container section .square {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  background: #EFEFEF;
+  bottom: 18px;
+  left: 11px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  border-right: 1px solid #4E5DFF;
+  border-bottom: 1px solid #4E5DFF;
+}
+.page .container section:last-of-type {
+  border-bottom: none;
+}
+.page .container section b {
+  margin: 0 0 0 17px;
+}
+.page .container section ul {
+  margin-left: 15px;
+}
+.page .container section p {
+  position: relative;
+  margin: 14px 0 24px 17px;
+  line-height: 19px;
+}
+.page .container section p.wrapper {
+  margin-left: 43px;
+}
+.page .container section p.more-info {
+  margin-top: 0;
+}
+.page .container section p .msg-wrn {
+  color: #ffbf28;
+}
+.page .container section p .msg-bkg-grey {
+  color: black;
+}
+.page .container section p .inner {
+  position: absolute;
+  left: -33px;
+  top: -5px;
+  font-size: 28px;
+}
+.page .container section p .outer {
+  position: absolute;
+  left: -35px;
+  top: -7px;
+  font-size: 32px;
+}
+.page .container section p.instances {
+  margin-top: 0px;
+  padding-left: 17px;
+}
+.page .container section p.conclude {
+  margin: 0 0 0 17px;
+}
+.page .container section p.conclude b {
+  margin: 0;
+}
+.page .container .instances {
+  float: left;
+  margin: 20px 0 0 0;
+}
+.page .container .instances .instance {
+  width: 45%;
+  position: relative;
+  padding: 0 24px 0 16px;
+  border-left: 1px solid #4E5DFF;
+}
+.page .container .instances .instance.author {
+  float: left;
+}
+.page .container .instances .instance.author h4 {
+  font-weight: bold;
+}
+.page .container .instances .instance.author > .icon {
+  font-size: 36px;
+  margin: -2px 0 11px -5px;
+}
+.page .container .instances .instance.public {
+  float: right;
+}
+.page .container .instances .instance.public h4 {
+  font-weight: bold;
+}
+.page .container .instances .instance.public > .icon {
+  font-size: 36px;
+  margin: -2px 0 11px -5px;
+}
+.page .container .instances .instance b {
+  margin: 0;
+}
+.page .container .instances .instance p {
+  margin: 3px 0 0 0;
+}
+.page .container .instances .instance .note {
+  color: #9E9E9E;
+  margin: 23px 0 5px 0;
+}
+.page .container .instances .instance .links {
+  margin-left: -2px;
+}
+.page .container .instances .instance .links span.icon {
+  font-size: 18px;
+  position: absolute;
+  margin: 0 0 0 -3px;
+}
+.page .container .more-info {
+  margin: 44px 0 0 20px;
+}
+.page .container .more-info .icon {
+  font-size: 18px;
+}
+@media only screen and (max-width: 1025px) {
+  .page .container .instances .instance {
+    width: 43%;
+  }
+  .subStyleTitle {
+    display: none; 
+  }
+}
+@media only screen and (max-width: 732px) {
+  .page .container .instances .instance {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 736px) { 
+  .header {
+    margin: 0px 0px 8px 8px;
+  }
+  .sticky-container .container .header {
+    height: 200px;
+  }
+  .sticky-container .container .header .mgnl-icon {
+    top: -66px;
+    left: 0px;
+  }
+  .sticky-container {
+    position: initial;
+    height: 124px;
+  }
+  .page .container .instances .instance {
+    width: inherit !important;
+    margin-top: 24px;
+  }
+  .buttonTitle {
+    position: relative;
+    font-size: 0.888rem !important;
+    bottom: 2px !important;
+  }
+}
+@-moz-document url-prefix() {
+  .sticky-container .container .header .square {
+    bottom: 51px;
+  }
+  .page .container section .instances .instance .links .icon span.icon {
+    margin: 0;
+  }
+  .page .container .more-info .icon {
+    font-size: 18px;
+    margin: 0 0 0 -2px;
+  }
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .sticky-container .container .header .square {
+    bottom: 51px;
+  }
+}
+.footer {
+  padding: 79px 0 23px 0;
+  text-align: center;
+  background: #ECECEC;
+  font-size: 9px;
+}
+.footer .trademark {
+  
+}
+.footer .copyright {
+  font-size: 11px;
+}

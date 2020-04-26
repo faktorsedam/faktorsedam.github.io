@@ -1,227 +1,218 @@
+
 <!DOCTYPE html>
-<html lang="sr_RS">
-	<head>
-	  <meta charset="UTF-8">
-	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <meta name="description" content="Услуге видео и аудио продукције, креирања 2д и 3д анимација и визуелних ефеката. Садржај визуелног и звучног приказа за тв рекламе, видео садржај за интернет, кратке форме медија као и за специјалне захтеве. Од креирања креативног концепта, преко организације снимања и снимања, до финалне постпродукције и пласирања у етар. Интернет и интранет сајтови и апликације за десктоп, интернет, интранет и мобилне уређаје.">
-	  <link rel="shortcut icon" href="cg/faviconF7.png" type="image/x-icon">
-	  <link rel="stylesheet" type="text/css" href="css/global.css">
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	  <title>3D modeli</title>
-	</head>
-	<style type="text/css">
-		#sidebar{
-			height:90px;
-			width:90px;
-			position:fixed;
-			top:250px;
-			right:-60px;
-			background-color:rgba(0,0,0,.7);
-			border-top-left-radius:10px;
-			border-bottom-left-radius:10px;
-			transition:all .3s ease-in;
-		}
-		#sidebar:hover{
-			right:0px;
-			box-shadow:0px 0px 7px #000000;
-			background: linear-gradient(rgba(102,102,102,1),rgba(204,204,204,1));
-		}
-		#sidebar #home{
-			width:70px;
-			height:70px;
-			background: linear-gradient(wheat,#A7A25C);
-			margin:10px;
-			border-radius:10px;
-			background-image:url(images/gallery.jpg);
-			background-size:cover;
-			background-position:center;
-			transition:all 400ms ease-in-out;
-		}
-		#sidebar #home:hover{
-			box-shadow:3px 3px 3px gray;
-			color:#360;
-		}
+<html lang="en">
+<head>
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Portfolio - 3D Modeli, Grafika, Ilustracije, Logotipi - Video Animacija Grafika Zvuk Dizajn Aplikacije</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="icons.css">
+    <link rel="stylesheet" href="modal.css">
+    <style type="text/css">
+        div.gallery img {
+            width: auto;
+            float: left;
+        }
+        .clearfix {
+            clear: both;
+        }
+        .grafilustthumb {
+            flex: 1;
+            width: 100% !important;
+            padding-bottom: 4rem;
+        }
+        .modalimg {
+              height: 100vh;
+        }
+    </style>
+</head>
 
-		#container{ 
-		
-		}
-
-		img{
-			width:300px;
-			height:200px;
-			float:left;
-			margin-bottom:30px;
-		}
-		img:hover{
-			opacity: 0.7;
-		    filter: alpha(opacity=70);
-		}
-
-		.first{
-			margin-right:30px;
-		}
-		.last{
-			margin-left:30px;
-		}
-
-		.modalDialog {
-			position: fixed;
-			font-family: Arial, Helvetica, sans-serif;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			background: rgba(0,0,0,0.8);
-			z-index: 99999;
-			opacity:0;
-			-webkit-transition: opacity 400ms ease-in; /* .4s */
-			-moz-transition: opacity 400ms ease-in;
-			transition: opacity 400ms ease-in;
-			pointer-events: none;
-		}
-
-		.modalDialog:target {
-			opacity:1;
-			pointer-events: auto;
-		}
-
-		.modalDialog > div {
-			width: 90vw;
-			height: 90vh;
-			position: relative;
-			margin: 1% auto;
-			padding: 5px 20px 13px 20px;
-			border-radius: 10px;
-			background: #fff;
-			background: -moz-linear-gradient(#fff, #999, #FF0);
-			background: -webkit-linear-gradient(#fff, #999);
-			background:linear-gradient(#39C, #999, #FC0);
-			background-repeat:no-repeat;
-			background-position:center;
-			
-		}
-
-		.close {
-			background: #606061;
-			color: #FFFFFF;
-			line-height: 25px;
-			position: absolute;
-			right: -12px;
-			text-align: center;
-			top: -10px;
-			width: 24px;
-			text-decoration: none;
-			font-weight: bold;
-			-webkit-border-radius: 12px;
-			-moz-border-radius: 12px;
-			border-radius: 10px;
-			-moz-box-shadow: 1px 1px 3px #000;
-			-webkit-box-shadow: 1px 1px 3px #000;
-			box-shadow: 1px 1px 3px #000;
-		}
-
-		.close:hover { 
-			background: gold; 
-		}
-
-		//galerija
-	
-		div.gallery {
-		  border: 1px solid #ccc;
-		}
-
-		div.gallery:hover {
-		  
-		}
-
-		div.gallery img {
-		  width: 100%;
-		  height: auto;
-		}
-
-		div.desc {
-		  padding: 15px;
-		  text-align: center;
-		}
-
-		* {
-		  box-sizing: border-box;
-		}
-
-		.responsive {
-		  padding: 0 6px;
-		  float: left;
-		  width: 24.99999%;
-		}
-
-		@media only screen and (max-width: 700px) {
-		  .responsive {
-		    width: 49.99999%;
-		    margin: 6px 0;
-		  }
-		}
-
-		@media only screen and (max-width: 500px) {
-		  .responsive {
-		    width: 100%;
-		  }
-		}
-
-		.clearfix:after {
-		  content: "";
-		  display: table;
-		  clear: both;
-		}
-
-	</style>
-	<body style="background-image: url(cg/backgroundpattern.png);">
-
-    <div id="container">
-    	<div class="intro" style="margin-top: 4rem;">
-		    <h2 id="naslov">Reference</h2>
-		    <hr class="brace">
-		    <p style="font-size:1.7rem;margin:2rem; text-align: left;width: 50vw;"><mark>&nbsp;3D MODELI:&nbsp;</mark><br>Pažljivo kreirani kako bi odgovarali potrebama.</p>
-		</div>      
-	</div> 
-
-<!-- start of gallery -->
-<div class="responsive">
-  <div class="gallery">
-    <a target="_blank" href="cg/3D-models/jelka.jpg">
-      <img src="cg/3D-models/jelka.jpg" alt="Cinque Terre" width="600" height="400">
+<body>
+    <a href="#">
+      <div id="modal">
+        <img class="modalimg" src="https://faktorsedam.github.io/cg/3D-models/jelka.jpg">
+      </div>
     </a>
-  </div>
-</div>
 
-
-<div class="responsive">
-  <div class="gallery">
-    <a target="_blank" href="cg/3D-models/tuja1.png">
-      <img src="cg/3D-models/tuja1.png" alt="Forest" width="600" height="400">
+    <a href="#">
+      <div id="modal2">
+        <img class="modalimg" src="https://faktorsedam.github.io/cg/3D-models/tuja1.png">
+      </div>
     </a>
-  </div>
-</div>
 
-<div class="responsive">
-  <div class="gallery">
-    <a target="_blank" href="cg/3D-models/fotelja-wireframe-vs-render.png">
-      <img src="cg/3D-models/fotelja-wireframe-vs-render.png" alt="Northern Lights" width="600" height="400">
+    <a href="#">
+      <div id="modal3">
+        <img class="modalimg" src="https://faktorsedam.github.io/cg/3D-models/fotelja-wireframe-vs-render.png">
+      </div>
     </a>
-  </div>
-</div>
 
-<div class="responsive">
-  <div class="gallery">
-    <a target="_blank" href="cg/3D-models/peskir.png">
-      <img src="cg/3D-models/peskir.png" alt="Mountains" width="600" height="400">
+    <a href="#">
+      <div id="modal4">
+        <img class="modalimg" src="https://faktorsedam.github.io/cg/3D-models/peskir.png">
+      </div>
     </a>
-  </div>
-</div>
 
-<div class="clearfix"></div>
-<!-- eof -->
+<div class="flexWrapper">
+    <header class="sticky-container">
+        <div class="logo">
+        </div>
+        <div class="container">
+            <div class="header">
+                <a href="/"><div class="mgnl-icon icon icon-welcome"></div></a>
+                <h1>Portfolio</h1>
+                <h2>3D Modeli, Grafika, Ilustracije, Logotipi</h2>
+                <div class="square"></div>
+            </div>
+        </div>
+    </header>
+     
+    <main class="page">
+        <div class="container">
+            <p>Pažljivo kreirani digitalni sadržaji kako bi odgovarali potrebama.</p>
+            <section style="padding: 0 0 1rem 0rem;">
+                <h3>3D Modeli</h3>
+                <div class="square"></div>
+                <div class="responsive">
+                  <div class="gallery">
+                    <a href="#modal">
+                      <img src="images/3d-modeli/jelka-t.jpg" width="600" height="400">
+                    </a>
+                  </div>
+                </div>
 
+                <div class="responsive">
+                  <div class="gallery">
+                    <a href="#modal2">
+                      <img src="images/3d-modeli/tuja2-t.jpg" alt="3D assets" width="600" height="400">
+                    </a>
+                  </div>
+                </div>
+
+                <div class="responsive">
+                  <div class="gallery">
+                    <a href="#modal3">
+                      <img src="images/3d-modeli/fotelja1-t.jpg" alt="3D assets" width="600" height="400">
+                    </a>
+                  </div>
+                </div>
+
+                <div class="responsive">
+                  <div class="gallery">
+                    <a href="#modal4">
+                      <img src="images/3d-modeli/peskir-t.jpg" alt="3D assets" width="600" height="400">
+                    </a>
+                  </div>
+                </div>
+
+                <div class="clearfix"></div>                                
+            </section>
+            <section>
+
+                <h3>Grafika i Ilustracije</h3>
+                <div class="square"></div>
+                <div class="responsive">
+                  <div class="gallery">
+                    <a target="_blank" href="images/grafika-i-ilustracije/ekrusevac2.jpg">
+                      <img class="grafilustthumb" src="images/grafika-i-ilustracije/ekrusevac2.jpg">
+                    </a>
+                  </div>
+                </div>
+
+                <div class="responsive">
+                  <div class="gallery">
+                    <a target="_blank" href="images/grafika-i-ilustracije/srecnipraznici1.png">
+                      <img class="grafilustthumb" src="images/grafika-i-ilustracije/srecnipraznici1.png">
+                    </a>
+                  </div>
+                </div>
+
+                <div class="responsive">
+                  <div class="gallery">
+                    <a target="_blank" href="images/grafika-i-ilustracije/37000.jpg">
+                      <img class="grafilustthumb" src="images/grafika-i-ilustracije/37000.jpg">
+                    </a>
+                  </div>
+                </div>
+
+                <div class="responsive">
+                  <div class="gallery">
+                    <a target="_blank" href="images/grafika-i-ilustracije/37inLogo.jpg">
+                      <img class="grafilustthumb" src="images/grafika-i-ilustracije/37inLogo.jpg">
+                    </a>
+                  </div>
+                </div>
+
+                <div class="responsive">
+                  <div class="gallery">
+                    <a target="_blank" href="images/grafika-i-ilustracije/fotelja7.jpg">
+                      <img class="grafilustthumb" src="images/grafika-i-ilustracije/fotelja7.jpg">
+                    </a>
+                  </div>
+                </div>
+
+                <div class="responsive">
+                  <div class="gallery">
+                    <a target="_blank" href="https://www.facebook.com/groups/vestacka.inteligencija/">
+                      <img class="grafilustthumb" src="images/grafika-i-ilustracije/ai.jpg">
+                    </a>
+                  </div>
+                </div>
+
+                <div class="responsive">
+                  <div class="gallery">
+                    <a target="_blank" href="https://www.facebook.com/faktorsedam/">
+                      <img class="grafilustthumb" src="images/grafika-i-ilustracije/7.png">
+                    </a>
+                  </div>
+                </div>
+
+                <div class="responsive">
+                  <div class="gallery">
+                    <a target="_blank" href="https://www.facebook.com/ekrusevac/">
+                      <img class="grafilustthumb" src="images/grafika-i-ilustracije/ekrusevac.jpg">
+                    </a>
+                  </div>
+                </div>
+
+                <div class="responsive">
+                  <div class="gallery">
+                    <a target="_blank" href="images/grafika-i-ilustracije/mimir.jpg">
+                      <img class="grafilustthumb" src="images/grafika-i-ilustracije/mimir.jpg">
+                    </a>
+                  </div>
+                </div>
+
+                <div class="responsive">
+                  <div class="gallery">
+                    <a target="_blank" href="https://www.facebook.com/problemmanje/">
+                      <img class="grafilustthumb" src="images/grafika-i-ilustracije/pm1.jpg">
+                    </a>
+                  </div>
+                </div>
+
+                <div class="responsive">
+                  <div class="gallery">
+                    <a target="_blank" href="https://www.facebook.com/problemmanje/">
+                      <img class="grafilustthumb" src="images/grafika-i-ilustracije/pm2.jpg">
+                    </a>
+                  </div>
+                </div>
+
+                <div class="responsive">
+                  <div class="gallery">
+                    <a target="_blank" href="https://www.facebook.com/groups/prakticna.informatika/">
+                      <img class="grafilustthumb" src="images/grafika-i-ilustracije/praktinf.jpg">
+                    </a>
+                  </div>
+                </div>
+            </section>
+
+            <br style="clear: both;"/>
+            
+        </div>
+    </main>
+    	
 		<center>
 			<p style="margin:2rem; line-height: 2.4rem;">Ukoliko imate potrebu za više informacija koje niste mogli naći, kontakt možete ostvariti upotrebom opcije <a class="button" style="margin: 1rem 0.1rem;white-space: nowrap;" href="mailto:faktorsedam@yandex.ru?subject=VIŠE%20INFORMACIJA&body=>>>[%20Ovde%20precizirajte%20svoje%20potrebe%20i%20pošaljite%20poruku%20]<<<">Više informacija</a> ili se možete vratiti <a class="button" style="margin: 1rem 0.1rem;" href="index.html#portfolio">Nazad</a> na deo sa opštim informacijama o referencama.</p>
 		    <br>
@@ -246,5 +237,6 @@
 		</script>
 		<noscript><div><img src="https://mc.yandex.ru/watch/54643486" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 	  <!-- /Yandex.Metrika counter -->	
-	</body>
+</div>
+</body>
 </html>
