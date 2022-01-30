@@ -1,5 +1,4 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sr">
   <head>
 	<title>Pregled uvoza i izvoza IKT usluga po godinama</title>
@@ -20,32 +19,67 @@
 		float: left;
 	}
 	h1{
+		margin: 25px 33%;
+		padding: 2rem;
+		border: 1px solid rosybrown;
 		font-family: sans-serif;
 		line-height: 130%;
 		font-size: 3rem;
-    	text-align: center;
-    	margin-bottom: 25px;
+    text-align: center;
+    margin-bottom: 25px;
 		color:#fff;
 		font-weight: 800;
 	}
+
+	.responsive1{
+	  display: inline-block;
+
+	  width: 80%;
+	  text-align: center;
+	  padding: 20px 0;
+	  margin: 0px;
+	}
+
+	.responsive2{
+	  display: inline-block;
+
+	  width: 80%;
+	  text-align: center;
+	  padding: 20px 0;
+	  margin: 0px;
+	}
+@media only screen and (max-width: 1680px){
+  .responsive1{
+    width: 98%;
+  }
+  .responsive2{
+    width: 98%;
+  }
+  h1{
+  	font-size: 1.2rem;
+  }
+}
 	</style>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
+  <center>
   	<h1>Pregled uvoza/izvoza IKT usluga po godinama</h1>
 	<div class="row">
-		<div class="col s6" style="width:48%;">
+		<div class="responsive1">
 			<canvas id="uvoz"></canvas>
 		</div>
-		<div class="col s6" style="width:48%;">
+		<div class="responsive2">
 			<canvas id="izvoz"></canvas>
 		</div>
 	</div>
+	
 	<div class="row">
 		<div class="col s6" style="width:98%;">
 			<canvas id="uvozgodisnji"></canvas>
 		</div>
-	</div>	
+	</div>
+	</center>	
 	<footer class="page-footer">
           <div class="container">
             <div class="row">
