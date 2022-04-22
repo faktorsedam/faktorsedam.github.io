@@ -281,6 +281,42 @@
 }
 .callout, .masthead{
   background: linear-gradient(to bottom right, rgb(95, 64, 255), rgb(95, 64, 255), rgb(94, 53, 229));
+}
+
+.strelica{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.strelica span{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 1px solid #06A8FF;
+    border-right: 1px solid #06A8FF;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+.strelica span:nth-child(2){
+    animation-delay: -0.2s;
+}
+.strelica span:nth-child(3){
+    animation-delay: -0.4s;
+}
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px,-20px);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(45deg) translate(20px,20px);
+    }
 }    
   </style>
 </head>
@@ -322,7 +358,11 @@
     <div class="container text-center my-auto">
       <h1 class="mb-1 glitch" style="color:white" data-text="Video, animacija, grafika, aplikacije">Video, animacija, grafika, aplikacije</h1>
       <h3 class="mb-5"><mark><em style="line-height: 2.6rem;">Digitalni sadržaj i aplikacije</em></mark></h3>
-      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about" style="background-color:rgba(0,0,0,0);">Saznaj Više</a>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about" style="background-color:rgba(0,0,0,0);">
+        <div class="strelica">
+                  <span></span>  
+        </div>
+      </a>
     </div>
     <div class="overlay"></div>
   </header>
