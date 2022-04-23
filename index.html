@@ -285,16 +285,14 @@
 
 .strelica{
     position: absolute;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%,-50%);
 }
 .strelica span{
     display: block;
     width: 30px;
     height: 30px;
-    border-bottom: 1px solid #06A8FF;
-    border-right: 1px solid #06A8FF;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
     transform: rotate(45deg);
     margin: -10px;
     animation: animate 2s infinite;
@@ -358,11 +356,7 @@
     <div class="container text-center my-auto">
       <h1 class="mb-1 glitch" style="color:white" data-text="Video, animacija, grafika, aplikacije">Video, animacija, grafika, aplikacije</h1>
       <h3 class="mb-5"><mark><em style="line-height: 2.6rem;">Digitalni sadržaj i aplikacije</em></mark></h3>
-        
-          <a class="strelica js-scroll-trigger" href="#about" style="background-color:rgba(0,0,0,0);">
-            <span> </span>
-          </a>
-        
+      <a class="btn btn-link js-scroll-trigger" href="#about"><div class="strelica"><span></span></div></a>
     </div>
     <div class="overlay"></div>
   </header>
@@ -372,16 +366,18 @@
     <div class="container text-center">
       <div class="row">
         <div class="col-lg-10 mx-auto">
-          <h2>Zaokružena ponuda usluga za Vaš sledeći projekat!</h2><br>
+          <h2 style="padding-bottom: 6rem;">Zaokružena ponuda usluga za Vaš sledeći projekat!</h2><br>
           <p class="lead mb-5">Video i audio produkcija, kreiranje 2d i 3d animacija i vizuelnih efekata.<br><br>Sadržaj vizuelnog i zvučnog prikaza za štampane, elektronske i nove medije.<br><br>Desktop, web i mobilne aplikacije.</p><br><br>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#services" style="color: #4084FF !important; background-color: rgba(0,0,0,0) !important; border-color: #4084FF !important;">Usluge</a>
+          <a class="btn btn-link js-scroll-trigger" href="#services" style="top:50%; right:50%; color: #4084FF !important; background-color: rgba(0,0,0,0) !important; text-decoration-line: none !important;">
+            <div class="strelica"><span style="border-bottom-color: black; border-right-color: black;"></span></div>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Services -->
-  <section class="content-section bg-primary text-white text-center" id="services" style="background: linear-gradient(to bottom right, rgb(64, 158, 255), rgb(64, 128, 255), rgb(53, 120, 229));">
+  <section class="content-section bg-primary text-white text-center" id="services" style="background: linear-gradient(to bottom right, rgb(64, 158, 255), rgb(64, 128, 255), rgb(53, 120, 229)); height:98vh;">
     <div class="container">
       <div class="content-section-heading">
         <h3 class="text-secondary mb-0"><mark>Usluge</mark></h3>
